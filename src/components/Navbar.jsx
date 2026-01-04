@@ -9,12 +9,12 @@ function NavButton({ children, isActive, onClick, to }) {
     color: "white",
     padding: "8px 18px",
     borderRadius: "25px",
-    textDecoration: "none",
     fontWeight: "600",
-    display: "inline-block",
     transition: "all 0.3s ease",
     border: "none",
-    cursor: "pointer"
+    cursor: "pointer",
+    textDecoration: "none",
+    display: "inline-block"
   };
 
   const handleEnter = (e) => {
@@ -63,6 +63,7 @@ export default function Navbar() {
       const element = document.getElementById(section);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
+        setActiveSection(section);
       }
     }, 100);
   };
@@ -72,6 +73,7 @@ export default function Navbar() {
       setActiveSection("certificates");
       return;
     }
+
     if (location.pathname === "/contacts") {
       setActiveSection("contacts");
       return;
@@ -115,7 +117,7 @@ export default function Navbar() {
               className="h-8 sm:h-15 md:h-12"
             />
             <span className="text-lg sm:text-xl md:text-2xl font-semibold">
-              Ariana Saromo's Portfolio
+              Ariana Saromo&apos;s Portfolio
             </span>
           </div>
 
