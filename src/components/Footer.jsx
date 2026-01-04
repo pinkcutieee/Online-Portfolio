@@ -44,7 +44,7 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <div>
           <div className="flex items-center space-x-3 mb-4">
-            <img src="/Black Logo.png" alt="Logo" className="h-10" />
+            <img src="/Online-Portfolio/Black Logo.png" alt="Logo" className="h-10" />
             <h3 className="text-xl font-bold">Ariana Saromo</h3>
           </div>
           <p className="text-gray-700 mb-4">Passionate about developing innovative solutions, done the Ari way.</p>
@@ -63,7 +63,7 @@ export default function Footer() {
                 transition: 'transform 0.3s ease'
               }}
             >
-              <img src="/Email.png" alt="Email" className="w-5 h-5" />
+              <img src="/Online-Portfolio/Email.png" alt="Email" className="w-5 h-5" />
             </a>
 
             <a href="https://www.linkedin.com/in/ariana-may-s-6a6ba6328/"
@@ -80,7 +80,7 @@ export default function Footer() {
                 transition: 'transform 0.3s ease'
               }}
             >
-              <img src="/LinkedIn.png" alt="LinkedIn" className="w-5 h-5" />
+              <img src="/Online-Portfolio/LinkedIn.png" alt="LinkedIn" className="w-5 h-5" />
             </a>
 
             <a href="https://github.com/pinkcutieee"
@@ -97,7 +97,7 @@ export default function Footer() {
                 transition: 'transform 0.3s ease'
               }}
             >
-              <img src="/GitHub.png" alt="GitHub" className="w-5 h-5" />
+              <img src="/Online-Portfolio/GitHub.png" alt="GitHub" className="w-5 h-5" />
             </a>
           </div>
         </div>
