@@ -1,8 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Footer() {
+    const navigate = useNavigate();
+    
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const handleSectionClick = (section) => {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     };
 
   return (
@@ -112,14 +124,14 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="/#about" className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
+              <button onClick={() => handleSectionClick('about')} className="text-sm transition-colors hover:underline" style={{ color: "#7630CC", background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}>
                 About
-              </Link>
+              </button>
             </li>
             <li>
-              <Link to="/#projects" className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
+              <button onClick={() => handleSectionClick('projects')} className="text-sm transition-colors hover:underline" style={{ color: "#7630CC", background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}>
                 Projects
-              </Link>
+              </button>
             </li>
             <li>
               <Link to="/certificates" className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
