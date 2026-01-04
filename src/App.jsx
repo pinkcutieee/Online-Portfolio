@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import Home from "./Home";
 import { Certificates } from "./Certificates";
@@ -7,17 +7,15 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <BrowserRouter basename="/Online-Portfolio">
-      <>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/certificates" element={<Certificates />} />
-          <Route path="/contacts" element={<Contacts />} />
-        </Routes>
-        <Footer />
-      </>
-    </BrowserRouter>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/certificates" element={<Certificates />} />
+        <Route path="/contacts" element={<Contacts />} />
+      </Routes>
+      <Footer />
+    </>
   );
 }
 

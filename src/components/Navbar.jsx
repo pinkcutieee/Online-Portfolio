@@ -1,10 +1,9 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from "react-router-dom";
 
-function NavButton({ to, children, isActive, isRoute }) {
+function NavButton({ to, children, isActive, isExternal }) {
   const activeStyle = isActive ? '#FD9EF6' : '#C295F3';
-
+  
   const style = {
     backgroundColor: activeStyle,
     color: 'white',
@@ -26,9 +25,9 @@ function NavButton({ to, children, isActive, isRoute }) {
     e.target.style.transform = 'translateY(0)';
   };
 
-  if (isRoute) {
+  if (isExternal) {
     return (
-      <Link
+      <Link 
         to={to}
         style={style}
         onMouseEnter={MouseHover}
@@ -40,7 +39,7 @@ function NavButton({ to, children, isActive, isRoute }) {
   }
 
   return (
-    <a
+    <a 
       href={to}
       style={style}
       onMouseEnter={MouseHover}
@@ -83,7 +82,7 @@ export default function Navbar() {
 
     window.addEventListener('scroll', Scroll);
     Scroll();
-
+    
     return () => window.removeEventListener('scroll', Scroll);
   }, [location.pathname]);
 
@@ -93,18 +92,18 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-18 md:h-20 max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           
           <div className="flex items-center space-x-5">
-            <img src="/Online-Portfolio/Black%20Logo.png" alt="Logo" className="h-10 w-10" />
+            <img src="/Online-Portfolio/Black Logo.png" alt="Logo" className="h-8 sm:h-15 md:h-12" />
             <span className="text-lg sm:text-xl md:text-2xl font-semibold">
               Ariana Saromo's Portfolio
             </span>
           </div>
 
           <div className="ml-auto flex items-center gap-2 sm:gap-3">
-            <NavButton to="/Online-Portfolio/#home"   isActive={activeSection === 'home'}    isRoute={false}>Home</NavButton>
-            <NavButton to="/Online-Portfolio/#about"  isActive={activeSection === 'about'}   isRoute={false}>About</NavButton>
-            <NavButton to="/Online-Portfolio/#projects" isActive={activeSection === 'projects'} isRoute={false}>Projects</NavButton>
-            <NavButton to="/certificates" isActive={activeSection === 'certificates'} isRoute={true}>Certificates</NavButton>
-            <NavButton to="/contacts"     isActive={activeSection === 'contacts'}     isRoute={true}>Contact</NavButton>
+            <NavButton to="/#home" isActive={activeSection === 'home'}>Home</NavButton>
+            <NavButton to="/#about" isActive={activeSection === 'about'}>About</NavButton>
+            <NavButton to="/#projects" isActive={activeSection === 'projects'}>Projects</NavButton>
+            <NavButton to="/certificates" isActive={activeSection === 'certificates'} isExternal>Certificates</NavButton>
+            <NavButton to="/contacts" isActive={activeSection === 'contacts'} isExternal>Contact</NavButton>
           </div>
         </div>
       </div>
