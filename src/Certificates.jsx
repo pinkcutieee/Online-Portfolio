@@ -75,7 +75,7 @@ export function Certificates() {
 
   return (
     <div className="min-h-screen w-screen bg-pink-200" style={{
-      backgroundImage: "url(/Online-Portfolio/bg1.png)",
+      backgroundImage: 'url(/Online-Portfolio/bg1.png)',
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       }}
