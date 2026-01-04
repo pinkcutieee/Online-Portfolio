@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -105,29 +107,19 @@ export default function Footer() {
         <div>
           <ul className="flex flex-col gap-2">
             <li>
-              <a href="#/home" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
+              <Link to="/" className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#/about" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#/projects" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#/certificates" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
+              <Link to="/certificates" className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
                 Certificates
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#/contacts" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
+              <Link to="/contacts" className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
