@@ -11,7 +11,7 @@ const projects = [
                 these algorithms in disaster risk reduction and management.`,
     link: "/DESALGIRLS_FinalProject_DESALGO.pdf",
     details: "Research Study | Data Analysis | Report Writing | Course: Designing Algorithms | Language: Python",
-    image: "/DESALGIRLS_FinalProject_DESALGO.png"
+    image: "/Online-Portfolio/DESALGIRLS_FinalProject_DESALGO.png"
   },
   {
     title: "Proposed Database Design for Sertfit Athletics Gym & Sports Hub",
@@ -21,7 +21,7 @@ const projects = [
                 The design includes an business rules and processes, ERD, data dictionary, the commands used in MariaDB and the table contents.`,
     link: "/ARINALITY_Finals_Project.pdf",
     details: "Database Design | Entity Relationship Diagram | Data Dictionary | SQL | Course: Database Management 1 | DBMS: MariaDB",
-    image: "/ARINALITY_Finals_Project.png"
+    image: "/Online-Portfolio/ARINALITY_Finals_Project.png"
   },
   {
     title: "CLEANI UI/UX Design",
@@ -30,7 +30,7 @@ const projects = [
     description: "A prototype website design for CLEANI, an instant stain remover pen product that aims to provide users with an easy and convenient way to get rid of stains.",
     link: "https://www.figma.com/proto/qmaTRJ725rPMsa2QZtqR4N/CLEANI?node-id=1713-86&p=f&t=hrck687sUHsPCsMT-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1713%3A86",
     details: "UI/UX Design | Prototyping | User Research | Course: UI/UX Design and Programming | Tool: Figma",
-    image: "/CLEANI UIUX Design.png"
+    image: "/Online-Portfolio/CLEANI UIUX Design.png"
   },
   {
     title: "Taxency: Transparency Board Application",
@@ -41,7 +41,7 @@ const projects = [
         and support Sustainable Development Goal 16 on strong, transparent institutions.`,
     link: "/Taxency.pdf",
     details: "Python Application | Hash Table | Data Organization | Course: Data Structures and Algorithms | Language: Python",
-    image: "/Taxency.png"
+    image: "/Online-Portfolio/Taxency.png"
   },
   {
     title: "Direct Clothing Inc. Order Entry System",
@@ -51,7 +51,7 @@ const projects = [
         and inventory of the company.`,
     link: "/Direct Clothing Inc..pdf",
     details: "Order Entry System | System Analysis and Design | Course: Introduction to Programming Languages| Language: Java",
-    image: "/Direct Clothing Inc..png"
+    image: "/Online-Portfolio/Direct Clothing Inc..png"
   },
   {
     title: "Berry Blast Game",
@@ -61,7 +61,7 @@ const projects = [
         Afterward, the collected berries are used in a personality test, with results determined by the type gathered the most.`,
     link: "/Berry Blast.pdf",
     details: "Python Mini-Game | Game Development | Course: Programming Concepts and Logic | Language: Python",
-    image: "/Berry Blast.png"
+    image: "/Online-Portfolio/Berry Blast.png"
   }
 ];
 
@@ -99,7 +99,7 @@ function Home() {
   return (
     <div className="min-h-screen w-screen bg-pink-200"
       style={{
-        backgroundImage: 'url(bg.png)',
+        backgroundImage: 'url(/Online-Portfolio/bg.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -122,13 +122,13 @@ function Home() {
             </a>
         </div>
         <div style={{ width: '600px', height: '680px' }}>
-          <img src="Me.png" alt="Hero" className="w-full h-full object-cover"/>
+          <img src="/Online-Portfolio/Me.png" alt="Hero" className="w-full h-full object-cover"/>
         </div>
       </div>
 
     <article id="about" className="pt-8 px-4 md:px-8">
       <div className="flex gap-4">
-        <img src="/Laptop.png" alt="Laptop" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'cover'}}/>
+        <img src="/Online-Portfolio/Laptop.png" alt="Laptop" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'cover'}}/>
         <div className="flex-1">
         <p className="boxed" style={{ color: "black" }}>
         <div className="window-titlebar">
@@ -195,13 +195,13 @@ function Home() {
             </ul>
           </p>
         </div>
-        <img src="/Gear.png" alt="Gear" className="w-full h-auto object-cover rounded-lg" style={{width: '400px', objectFit: 'cover'}}/>
+        <img src="/Online-Portfolio/Gear.png" alt="Gear" className="w-full h-auto object-cover rounded-lg" style={{width: '400px', objectFit: 'cover'}}/>
       </div>
     </article>
 
     <article className="pt-8 px-4 md:px-8">
       <div className="flex gap-4">
-        <img src="/CLI.png" alt="CLI" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'contain'}}/>
+        <img src="/Online-Portfolio/CLI.png" alt="CLI" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'contain'}}/>
         <div className="flex-1">
           <p className="boxed" style={{ color: "black" }}>
             <div className="window-titlebar">
@@ -214,7 +214,7 @@ function Home() {
             <h3><b>Tools & Software Skills</b></h3>
             <div className="grid grid-cols-3 gap-4 mt-4">
               <div className="flex flex-col items-center text-center">
-                <img src="/Microsoft.png" alt="Microsoft Office" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/Microsoft.png" alt="Microsoft Office" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">Microsoft Office Apps</span>
               </div>
               <div className="flex flex-col items-center text-center">
@@ -222,55 +222,55 @@ function Home() {
                 <span className="text-sm">VS Code</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/JetBrains.png" alt="JetBrains" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/JetBrains.png" alt="JetBrains" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">JetBrains Apps</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/GitHubL.png" alt="GitHub" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/GitHubL.png" alt="GitHub" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">GitHub</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/ChatGPT.png" alt="ChatGPT" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/ChatGPT.png" alt="ChatGPT" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">ChatGPT</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/Claude.png" alt="Claude" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/Claude.png" alt="Claude" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">Claude</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/Procreate.png" alt="Procreate" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/Procreate.png" alt="Procreate" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">Procreate</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/Figma.png" alt="Figma" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/Figma.png" alt="Figma" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">Figma</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/Canva.png" alt="Canva" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/Canva.png" alt="Canva" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">Canva</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/Kali.png" alt="Kali" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/Kali.png" alt="Kali" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">Kali Linux</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/Ubuntu.png" alt="Ubuntu" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/Ubuntu.png" alt="Ubuntu" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">Ubuntu Linux</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/Mysql.png" alt="MySQL" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/Mysql.png" alt="MySQL" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">MySQL</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/XAMPP.png" alt="XAMPP" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/XAMPP.png" alt="XAMPP" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">XAMPP</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/PacketTracer.png" alt="Packet Tracer" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/PacketTracer.png" alt="Packet Tracer" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">Packet Tracer</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/Tinkercad.png" alt="Tinkercad" className="w-16 h-16 object-contain mb-2" />
+                <img src="/Online-Portfolio/Tinkercad.png" alt="Tinkercad" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">Tinkercad</span>
               </div>
             </div>
