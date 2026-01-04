@@ -103,7 +103,7 @@ export default function Navbar() {
             <NavButton to="/#about" isActive={activeSection === 'about'}>About</NavButton>
             <NavButton to="/#projects" isActive={activeSection === 'projects'}>Projects</NavButton>
             <NavButton to="/certificates" isActive={activeSection === 'certificates'} isExternal>Certificates</NavButton>
-            <NavButton to="/contacts" isActive={activeSection === 'contacts'}>Contact</NavButton>
+            <NavButton to="/contacts" isActive={activeSection === 'contacts'} isExternal>Contact</NavButton>
           </div>
         </div>
       </div>
