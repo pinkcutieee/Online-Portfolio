@@ -9,7 +9,7 @@ const projects = [
     description: `A research study analyzing the algorithms: forecasting-based financing and flood risk prediction made by Red Cross Red Crescent Climate Centre. 
                 By creating a simplified Python implementation for flood prone communities in the Philippines, the study aims to understand the effectiveness of 
                 these algorithms in disaster risk reduction and management.`,
-    link: "/DESALGIRLS_FinalProject_DESALGO.pdf",
+    link: "/Online-Portfolio/DESALGIRLS_FinalProject_DESALGO.pdf",
     details: "Research Study | Data Analysis | Report Writing | Course: Designing Algorithms | Language: Python",
     image: "/Online-Portfolio/DESALGIRLS_FinalProject_DESALGO.png"
   },
@@ -19,7 +19,7 @@ const projects = [
     names: "by: Christian Gabriel Agot, Roycee Hugh Lacuesta, June Benedict Malabanan, and Ariana May Saromo",
     description: `A proposed database design for Sertfit Athletics Gym & Sports Hub, a fitness center in Brgy. 174, Malibay, Pasay City, Philippines.
                 The design includes an business rules and processes, ERD, data dictionary, the commands used in MariaDB and the table contents.`,
-    link: "/ARINALITY_Finals_Project.pdf",
+    link: "/Online-Portfolio/ARINALITY_Finals_Project.pdf",
     details: "Database Design | Entity Relationship Diagram | Data Dictionary | SQL | Course: Database Management 1 | DBMS: MariaDB",
     image: "/Online-Portfolio/ARINALITY_Finals_Project.png"
   },
@@ -39,7 +39,7 @@ const projects = [
     description: `Taxency is an application to increase transparency in the Philippine tax system by tracking government projects 
         and fund allocation. Using a hash table to organize project data, the app aims to simplify access to information, promote accountability, 
         and support Sustainable Development Goal 16 on strong, transparent institutions.`,
-    link: "/Taxency.pdf",
+    link: "/Online-Portfolio/Taxency.pdf",
     details: "Python Application | Hash Table | Data Organization | Course: Data Structures and Algorithms | Language: Python",
     image: "/Online-Portfolio/Taxency.png"
   },
@@ -49,7 +49,7 @@ const projects = [
     names: "by: Mar Joseph Bijer, Ethan Edgar Francisco, Clark Ken Guiraldo,Ariana May Saromo, and Juan Victor Gabriel Villocillo",
     description: `A proposed order entry system for Direct Clothing Inc.. Includes the option to manage customer information, orders, 
         and inventory of the company.`,
-    link: "/Direct Clothing Inc..pdf",
+    link: "/Online-Portfolio/Direct Clothing Inc..pdf",
     details: "Order Entry System | System Analysis and Design | Course: Introduction to Programming Languages| Language: Java",
     image: "/Online-Portfolio/Direct Clothing Inc..png"
   },
@@ -59,7 +59,7 @@ const projects = [
     names: "by: Ariana May Saromo",
     description: `Berry Blast is a Python mini-game where players catch five types of berries within a one-minute time limit. 
         Afterward, the collected berries are used in a personality test, with results determined by the type gathered the most.`,
-    link: "/Berry Blast.pdf",
+    link: "/Online-Portfolio/Berry Blast.pdf",
     details: "Python Mini-Game | Game Development | Course: Programming Concepts and Logic | Language: Python",
     image: "/Online-Portfolio/Berry Blast.png"
   }
@@ -117,7 +117,7 @@ function Home() {
                 Aspiring Full-Stack Developer & Designer
               </p>
             </div>
-            <a href="/Resume.pdf" className="inline-block mt-2 px-6 py-2 bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
+            <a href="/Online-Portfolio/Resume.pdf" className="inline-block mt-2 px-6 py-2 bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
               View Resume
             </a>
         </div>
