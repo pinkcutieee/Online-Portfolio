@@ -99,12 +99,12 @@ export default function Navbar() {
           </div>
 
           <div className="ml-auto flex items-center gap-2 sm:gap-3">
-            <NavButton to="/#home" isActive={activeSection === 'home'}>Home</NavButton>
-            <NavButton to="/#about" isActive={activeSection === 'about'}>About</NavButton>
-            <NavButton to="/#projects" isActive={activeSection === 'projects'}>Projects</NavButton>
+            <NavButton to="#/home" isActive={activeSection === 'home'}>Home</NavButton>
+            <NavButton to="#/about" isActive={activeSection === 'about'}>About</NavButton>
+            <NavButton to="#/projects" isActive={activeSection === 'projects'}>Projects</NavButton>
             <NavButton to="/certificates" isActive={activeSection === 'certificates'} isExternal>Certificates</NavButton>
             <NavButton to="/contacts" isActive={activeSection === 'contacts'} isExternal>Contact</NavButton>
-          </div>
+        </div>
         </div>
       </div>
     </nav>

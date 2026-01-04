@@ -105,27 +105,27 @@ export default function Footer() {
         <div>
           <ul className="flex flex-col gap-2">
             <li>
-              <a href="/#home" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
+              <a href="#/home" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
                 Home
               </a>
             </li>
             <li>
-              <a href="/#about" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
+              <a href="#/about" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
                 About
               </a>
             </li>
             <li>
-              <a href="/#projects" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
+              <a href="#/projects" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
                 Projects
               </a>
             </li>
             <li>
-              <a href="/certificates" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
+              <a href="#/certificates" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
                 Certificates
               </a>
             </li>
             <li>
-              <a href="/contacts" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
+              <a href="#/contacts" className="text-sm transition-colors" style={{ color: "#7630CC"}}>
                 Contact
               </a>
             </li>
