@@ -124,12 +124,12 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <button onClick={() => handleSectionClick('about')} className="text-sm transition-colors hover:underline" style={{ color: "#7630CC", background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}>
+              <button onClick={() => handleSectionClick('about')} className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
                 About
               </button>
             </li>
             <li>
-              <button onClick={() => handleSectionClick('projects')} className="text-sm transition-colors hover:underline" style={{ color: "#7630CC", background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}>
+              <button onClick={() => handleSectionClick('projects')} className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
                 Projects
               </button>
             </li>
