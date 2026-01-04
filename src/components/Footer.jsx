@@ -112,6 +112,16 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link to="/#about" className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/#projects" className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
+                Projects
+              </Link>
+            </li>
+            <li>
               <Link to="/certificates" className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
                 Certificates
               </Link>

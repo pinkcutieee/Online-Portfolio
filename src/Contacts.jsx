@@ -69,7 +69,7 @@ export function Contacts() {
               justifyContent: 'center',
             }}
           >
-            <img src="BunEmail.png" alt="Email Icon" style={{ width: '200px', height: '200px' }}/>
+            <img src="/Online-Portfolio/BunEmail.png" alt="Email Icon" style={{ width: '200px', height: '200px' }}/>
           </div>
             <h3 className="font-bold text-lg mb-3">Email</h3>
             <div style={{ marginBottom: '10px' }}>
@@ -131,7 +131,7 @@ export function Contacts() {
               justifyContent: 'center',
             }}
           >
-            <img src="BunPhone.png" alt="Phone Icon" style={{ width: '200px', height: '200px' }}/>
+            <img src="/Online-Portfolio/BunPhone.png" alt="Phone Icon" style={{ width: '200px', height: '200px' }}/>
           </div>
           <h3 className="font-bold text-lg mb-2">Phone</h3>
             <a href="tel:+63 995 775 7988"
@@ -166,7 +166,7 @@ export function Contacts() {
             }}
           >
           <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',}}>
-            <img src="BunLI.png" alt="LinkedIn Icon" style={{ width: '200px', height: '200px' }}/>
+            <img src="/Online-Portfolio/BunLI.png" alt="LinkedIn Icon" style={{ width: '200px', height: '200px' }}/>
           </div>
           <h3 className="font-bold text-lg mb-2">LinkedIn</h3>
             <a href="https://www.linkedin.com/in/ariana-may-s-6a6ba6328/"
@@ -210,7 +210,7 @@ export function Contacts() {
               justifyContent: 'center',
             }}
           >
-            <img src="BunGH.png" alt="GitHub Icon" style={{ width: '200px', height: '200px' }}/>
+            <img src="/Online-Portfolio/BunGH.png" alt="GitHub Icon" style={{ width: '200px', height: '200px' }}/>
           </div>
             <h3 className="font-bold text-lg mb-2">GitHub</h3>
             <a href="https://github.com/pinkcutieee"
@@ -254,7 +254,7 @@ export function Contacts() {
                 justifyContent: 'center',
               }}
             >
-              <img src="BunTH.png" alt="Trailhead Icon" style={{ width: '200px', height: '200px' }}/>
+              <img src="/Online-Portfolio/BunTH.png" alt="Trailhead Icon" style={{ width: '200px', height: '200px' }}/>
             </div>
             <h3 className="font-bold text-lg mb-2">Trailhead</h3>
             <a href="https://www.salesforce.com/trailblazer/xne2vyi84ilms2r1b8"
@@ -298,7 +298,7 @@ export function Contacts() {
               justifyContent: 'center',
             }}
           >
-            <img src="BunML.png" alt="Microsoft Learn Icon" style={{ width: '200px', height: '200px' }}/>
+            <img src="/Online-Portfolio/BunML.png" alt="Microsoft Learn Icon" style={{ width: '200px', height: '200px' }}/>
           </div>
           <h3 className="font-bold text-lg mb-2">Microsoft Learn</h3>
           <a href="https://learn.microsoft.com/en-us/users/arianamaysaromo-1068/"
