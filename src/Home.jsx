@@ -218,7 +218,7 @@ function Home() {
                 <span className="text-sm">Microsoft Office Apps</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <img src="/VSCode.png" alt="VS Code" className="w-16 h-16 object-contain mb-2" />
+                <img src="Online-Portfolio/VSCode.png" alt="VS Code" className="w-16 h-16 object-contain mb-2" />
                 <span className="text-sm">VS Code</span>
               </div>
               <div className="flex flex-col items-center text-center">
