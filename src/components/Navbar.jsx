@@ -53,38 +53,40 @@ function NavButton({ to, children, isActive, isExternal }) {
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
-
   useEffect(() => {
-    if (location.pathname === '/certificates') {
-      setActiveSection('certificates');
-      return;
-    }
-    if (location.pathname === '/contacts') {
-      setActiveSection('contacts');
-      return;
-    }
+  if (location.pathname === '/certificates') {
+    setActiveSection('certificates');
+    return;
+  }
+  if (location.pathname === '/contacts') {
+    setActiveSection('contacts');
+    return;
+  }
+  if (location.pathname !== '/' && location.pathname !== '') {
+    return;
+  }
 
-    const Scroll = () => {
-      const sections = ['home', 'about', 'projects'];
-      const scrollPosition = window.scrollY + 150;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
+  const Scroll = () => {
+    const sections = ['home', 'about', 'projects'];
+    const scrollPosition = window.scrollY + 150;
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const { offsetTop, offsetHeight } = element;
+        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          setActiveSection(section);
+          break;
         }
       }
-    };
+    }
+  };
 
-    window.addEventListener('scroll', Scroll);
-    Scroll();
-    
-    return () => window.removeEventListener('scroll', Scroll);
-  }, [location.pathname]);
+  window.addEventListener('scroll', Scroll);
+  Scroll();
+  
+  return () => window.removeEventListener('scroll', Scroll);
+}, [location.pathname]);
+
 
   return (
     <nav className="fixed top-0 w-full z-50 px-4 sm:px-6 lg:px-8 pt-4">
