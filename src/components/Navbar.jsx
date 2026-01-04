@@ -92,7 +92,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-18 md:h-20 max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           
           <div className="flex items-center space-x-5">
-            <img src="/Black Logo.png" alt="Logo" className="h-8 sm:h-15 md:h-12" />
+            <img src="/Online-Portfolio/Black Logo.png" alt="Logo" className="h-8 sm:h-15 md:h-12" />
             <span className="text-lg sm:text-xl md:text-2xl font-semibold">
               Ariana Saromo's Portfolio
             </span>
