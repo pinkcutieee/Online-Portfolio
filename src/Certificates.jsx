@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Certificates() {
   const [openCategory, setOpenCategory] = useState(null);
@@ -88,16 +88,20 @@ export function Certificates() {
   };
 
   return (
-    <div className="min-h-screen w-screen bg-pink-200" style={{
-      backgroundImage: 'url(/Online-Portfolio/bg1.png)',
+    <div className="min-h-screen w-screen" style={{
+      backgroundImage: isDark ? 'url(/Online-Portfolio/dark-bg.png)' : 'url(/Online-Portfolio/bg1.png)',
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       }}
     >
     <div className="pt-40 px-4 md:px-8 pb-8">
       <div className="max-w-7xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">My Certificates</h1>
-        <p className="text-lg">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{
+          color: isDark ? '#E6F1F7' : 'inherit'
+        }}>My Certificates</h1>
+        <p className="text-lg" style={{
+          color: isDark ? '#d1d5db' : 'inherit'
+        }}>
           A collection of my certifications and achievements.
         </p>
       </div>
@@ -114,13 +118,15 @@ export function Certificates() {
                 }
                 className="w-full flex justify-between items-center p-5 text-left"
                 style={{
-                  backgroundColor: "#E6F1F7",
+                  backgroundColor: isDark ? "#2a2a3a" : "#E6F1F7",
                   border: "none",
                   cursor: "pointer",
                   transition: "background-color 0.3s ease",
                 }}
               >
-                <h3 className="text-xl md:text-2xl font-bold">
+                <h3 className="text-xl md:text-2xl font-bold" style={{
+                  color: isDark ? '#E6F1F7' : 'inherit'
+                }}>
                   {category.category}
                 </h3>
                 <span
@@ -128,9 +134,10 @@ export function Certificates() {
                     fontSize: "24px",
                     transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                     transition: "transform 0.3s ease",
+                    color: isDark ? '#E6F1F7' : 'inherit'
                   }}
                 >
-                ❤︎
+                ▼
                 </span>
               </button>
 
@@ -144,7 +151,7 @@ export function Certificates() {
               >
                 
               <div style={{
-                backgroundColor: "#FFEBFD",
+                backgroundColor: isDark ? "#1a1a2a" : "#FFEBFD",
                 padding: isOpen ? "20px" : "0 20px",
                 transition: "padding 0.3s ease",
                 }}
@@ -161,7 +168,7 @@ export function Certificates() {
                   key={index}
                   onClick={() => CertificateClick(cert)}
                   style={{
-                    backgroundColor: "#FCFAF2",
+                    backgroundColor: isDark ? "#2a2a3a" : "#FCFAF2",
                     borderRadius: "12px",
                     overflow: "hidden",
                     boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
@@ -176,11 +183,15 @@ export function Certificates() {
                 >
                 <img src={cert.preview} alt={cert.title} style={{width: "100%", height: "180px", objectFit: "cover",}} />
                 <div style={{ padding: "15px" }}>
-                  <p style={{ fontWeight: 600, fontSize: "16px" }}>
+                  <p style={{ 
+                    fontWeight: 600, 
+                    fontSize: "16px",
+                    color: isDark ? '#E6F1F7' : 'inherit'
+                  }}>
                     {cert.title}
                   </p>
                   {cert.date && (
-                    <small style={{ color: "#505050" }}>
+                    <small style={{ color: isDark ? "#9ca3af" : "#505050" }}>
                       {cert.date}
                     </small>
                   )}
