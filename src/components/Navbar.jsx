@@ -186,7 +186,7 @@ export default function Navbar() {
                 }
               }
             >
-              {darkMode ? "Light Mode" : "Dark Mode"}
+              {darkMode ? "☀︎" : "☾"}
             </button>
           </div>
         </div>
