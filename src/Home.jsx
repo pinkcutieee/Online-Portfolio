@@ -98,13 +98,11 @@ function Home() {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-
     const checkDarkMode = () => {
       setIsDark(document.body.classList.contains('dark'));
     };
     
     checkDarkMode();
-    
     const observer = new MutationObserver(checkDarkMode);
     observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
     
