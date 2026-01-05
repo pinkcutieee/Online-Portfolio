@@ -3,7 +3,7 @@ export function Contacts() {
     <div
       className="min-h-screen w-screen bg-pink-200"
       style={{
-        backgroundImage: 'url(/Online-Portfolio/bg1-transparent.png)',
+        backgroundImage: 'url(/Online-Portfolio/bg1.png)',
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}

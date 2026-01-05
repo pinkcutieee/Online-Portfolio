@@ -99,7 +99,7 @@ function Home() {
   return (
     <div className="min-h-screen w-screen bg-pink-200"
       style={{
-        backgroundImage: 'url(/Online-Portfolio/bg-transparent.png)',
+        backgroundImage: 'url(/Online-Portfolio/bg.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
