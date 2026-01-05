@@ -98,6 +98,7 @@ function Home() {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
+
     const checkDarkMode = () => {
       setIsDark(document.body.classList.contains('dark'));
     };
@@ -121,8 +122,8 @@ function Home() {
     <Navbar />
       <div id="home" className="pt-20 px-4 flex gap-4 items-center">
         <div className="flex-1 flex flex-col justify-center items-center text-center">
-            <p className="text-6xl md:text-7xl lg:text-8xl mr-0 md:mr-16 lg:mr-48 font-bold font-nunito text-black dark:text-[#E6F1F7]">Ariana</p>
-            <p className="text-6xl md:text-7xl lg:text-8xl mb-4 ml-0 md:ml-16 lg:ml-48 font-bold font-nunito text-black dark:text-[#E6F1F7]">Saromo</p>
+            <p className="text-6xl md:text-7xl lg:text-8xl mr-0 md:mr-16 lg:mr-48 font-bold font-nunito dark:text-[#E6F1F7]">Ariana</p>
+            <p className="text-6xl md:text-7xl lg:text-8xl mb-4 ml-0 md:ml-16 lg:ml-48 font-bold font-nunito dark:text-[#E6F1F7]">Saromo</p>
             <div className="flex gap-2 mt-2 justify-center">
               <p className="text-lg px-6 py-2 bg-[#FD9EF6] text-white rounded-full">
                 Computer Science Student
