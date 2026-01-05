@@ -1,22 +1,9 @@
-import { useState, useEffect } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Footer() {
-    const [isDark, setIsDark] = useState(false);
     const navigate = useNavigate();
     
-    useEffect(() => {
-      const checkDarkMode = () => {
-        setIsDark(document.body.classList.contains('dark'));
-      };
-      
-      checkDarkMode();
-      const observer = new MutationObserver(checkDarkMode);
-      observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-      
-      return () => observer.disconnect();
-    }, []);
-
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -34,7 +21,7 @@ export default function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: isDark ? '#2a2a3a' : '#F8CBFE',
+        backgroundColor: '#F8CBFE',
         padding: '40px 20px 20px',
         position: 'relative',
       }}
@@ -73,14 +60,9 @@ export default function Footer() {
         <div>
           <div className="flex items-center space-x-3 mb-4">
             <img src="/Online-Portfolio/Black Logo.png" alt="Logo" className="h-10" />
-            <h3 className="text-xl font-bold" style={{
-              color: isDark ? '#E6F1F7' : 'inherit'
-            }}>Ariana Saromo</h3>
+            <h3 className="text-xl font-bold">Ariana Saromo</h3>
           </div>
-          <p style={{
-            color: isDark ? '#d1d5db' : '#374151',
-            marginBottom: '16px'
-          }}>Passionate about developing innovative solutions, done the Ari way.</p>
+          <p className="text-gray-700 mb-4">Passionate about developing innovative solutions, done the Ari way.</p>
           <div className="flex gap-4">
             <a href="mailto:afsaromo@student.apc.edu.ph"
               target="_blank"
@@ -138,27 +120,27 @@ export default function Footer() {
         <div>
           <ul className="flex flex-col gap-2">
             <li>
-              <Link to="/" className="text-sm transition-colors hover:underline" style={{ color: isDark ? "#B4E0F7" : "#7630CC"}}>
+              <Link to="/" className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
                 Home
               </Link>
             </li>
             <li>
-              <button onClick={() => handleSectionClick('about')} className="text-sm transition-colors hover:underline" style={{ color: isDark ? "#B4E0F7" : "#7630CC"}}>
+              <button onClick={() => handleSectionClick('about')} className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
                 About
               </button>
             </li>
             <li>
-              <button onClick={() => handleSectionClick('projects')} className="text-sm transition-colors hover:underline" style={{ color: isDark ? "#B4E0F7" : "#7630CC"}}>
+              <button onClick={() => handleSectionClick('projects')} className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
                 Projects
               </button>
             </li>
             <li>
-              <Link to="/certificates" className="text-sm transition-colors hover:underline" style={{ color: isDark ? "#B4E0F7" : "#7630CC"}}>
+              <Link to="/certificates" className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
                 Certificates
               </Link>
             </li>
             <li>
-              <Link to="/contacts" className="text-sm transition-colors hover:underline" style={{ color: isDark ? "#B4E0F7" : "#7630CC"}}>
+              <Link to="/contacts" className="text-sm transition-colors hover:underline" style={{ color: "#7630CC"}}>
                 Contact
               </Link>
             </li>
@@ -166,9 +148,7 @@ export default function Footer() {
         </div>
       </div>
       <div style={{paddingTop: '5px', textAlign: 'center'}}>
-        <p className="text-sm" style={{
-          color: isDark ? '#d1d5db' : '#374151'
-        }}>
+        <p className="text-sm text-gray-700">
           © 2026 Ariana Saromo. All rights reserved.
         </p>
       </div>

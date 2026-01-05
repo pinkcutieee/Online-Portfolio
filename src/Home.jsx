@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Navbar from "./components/NavBar";
 
 const projects = [
@@ -70,7 +70,7 @@ function ProjectCard({ project }) {
 
   return (
     <div className="relative flex gap-5 bg-[#FFEBFD] p-5 rounded-xl shadow hover:shadow-sm transform hover:-translate-y-1 transition">
-      <small className="absolute top-3 right-3 text-sm dark:text-gray-300">{project.date}</small>
+      <small className="absolute top-3 right-3 text-sm">{project.date}</small>
       <div className="w-[300px] h-[300px] bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center">
         <img
           src={project.image}
@@ -79,40 +79,27 @@ function ProjectCard({ project }) {
       </div>
 
       <div className="flex-1 text-left">
-        <h4 className="font-bold text-sm md:text-base mb-2 dark:text-[#E6F1F7]">{project.title}</h4>
-        <p className="font-bold text-gray-800 dark:text-gray-300 text-sm mb-1">{project.names}</p><br/>
-        <p className="text-gray-800 dark:text-gray-300 text-medium mb-1">{project.description}</p>
+        <h4 className="font-bold text-sm md:text-base mb-2">{project.title}</h4>
+        <p className="font-bold text-gray-800 text-sm mb-1">{project.names}</p><br/>
+        <p className="text-gray-800 text-medium mb-1">{project.description}</p>
         <a href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-sm text-[#7630CC] dark:text-[#B4E0F7] font-semibold hover:underline mb-2">
+            className="inline-block text-sm text-[#7630CC] font-semibold hover:underline mb-2"
+            style={{ color: "#7630CC" }}>
             {project.title}
         </a><br/>
-        <small className="text-gray-500 dark:text-gray-400 text-sm">{project.details}</small>
+        <small className="text-gray-500 text-sm">{project.details}</small>
       </div>
     </div>
   );
 }
 
 function Home() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.body.classList.contains('dark'));
-    };
-    
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-    
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className="min-h-screen w-screen bg-pink-200"
       style={{
-        backgroundImage: isDark ? 'url(/Online-Portfolio/dark-bg.png)' : 'url(/Online-Portfolio/bg.png)',
+        backgroundImage: 'url(/Online-Portfolio/bg.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -120,8 +107,8 @@ function Home() {
     <Navbar />
       <div id="home" className="pt-20 px-4 flex gap-4 items-center">
         <div className="flex-1 flex flex-col justify-center items-center text-center">
-            <p className="text-6xl md:text-7xl lg:text-8xl mr-0 md:mr-16 lg:mr-48 font-bold font-nunito dark:text-[#E6F1F7]">Ariana</p>
-            <p className="text-6xl md:text-7xl lg:text-8xl mb-4 ml-0 md:ml-16 lg:ml-48 font-bold font-nunito dark:text-[#E6F1F7]">Saromo</p>
+            <p className="text-6xl md:text-7xl lg:text-8xl mr-0 md:mr-16 lg:mr-48 font-bold font-nunito">Ariana</p>
+            <p className="text-6xl md:text-7xl lg:text-8xl mb-4 ml-0 md:ml-16 lg:ml-48 font-bold font-nunito">Saromo</p>
             <div className="flex gap-2 mt-2 justify-center">
               <p className="text-lg px-6 py-2 bg-[#FD9EF6] text-white rounded-full">
                 Computer Science Student
@@ -130,7 +117,7 @@ function Home() {
                 Aspiring Full-Stack Developer & Designer
               </p>
             </div>
-            <a href="/Resume.pdf" className="inline-block mt-2 px-6 py-2 bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
+            <a href="/Online-Portfolio/Resume.pdf" className="inline-block mt-2 px-6 py-2 bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
               View Resume
             </a>
         </div>
@@ -143,7 +130,7 @@ function Home() {
       <div className="flex gap-4">
         <img src="/Online-Portfolio/Laptop.png" alt="Laptop" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'cover'}}/>
         <div className="flex-1">
-        <p className="boxed">
+        <p className="boxed" style={{ color: "black" }}>
         <div className="window-titlebar">
         </div>
           <div className="window-controls">
@@ -168,7 +155,7 @@ function Home() {
     <article className="pt-8 px-4 md:px-8">
       <div className="flex gap-4">
         <div className="flex-1">
-          <p className="boxed">
+          <p className="boxed" style={{ color: "black" }}>
           <div className="window-titlebar">
           </div>
           <div className="window-controls">
@@ -193,7 +180,7 @@ function Home() {
         </div>
 
         <div className="flex-1">
-          <p className="boxed">
+          <p className="boxed" style={{ color: "black" }}>
             <div className="window-titlebar">
             </div>
             <div className="window-controls">
@@ -216,7 +203,7 @@ function Home() {
       <div className="flex gap-4">
         <img src="/Online-Portfolio/CLI.png" alt="CLI" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'contain'}}/>
         <div className="flex-1">
-          <p className="boxed">
+          <p className="boxed" style={{ color: "black" }}>
             <div className="window-titlebar">
             </div>
             <div className="window-controls">
@@ -291,7 +278,7 @@ function Home() {
         </div>
 
         <div className="flex-1">
-          <p className="boxed">
+          <p className="boxed" style={{ color: "black" }}>
           <div className="window-titlebar">
           </div>
           <div className="window-controls">
@@ -312,7 +299,7 @@ function Home() {
     </article>
 
     <section id="projects" className="pt-8 px-4 md:px-8 pb-8">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-left dark:text-[#E6F1F7]">Projects</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-left">Projects</h2>
       <div className="flex flex-col gap-3">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
