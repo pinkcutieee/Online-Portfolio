@@ -2,6 +2,20 @@ import { useState } from "react";
 
 export function Certificates() {
   const [openCategory, setOpenCategory] = useState(null);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.body.classList.contains('dark'));
+    };
+    
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    
+    return () => observer.disconnect();
+  }, []);
+
   const certificateCategories = [
     { id: "One",
       category: "Cisco",
