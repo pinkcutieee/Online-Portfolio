@@ -63,3 +63,8 @@ p.boxed {
   justify-content: center;
   font-size: 10px;
 }
+
+body.dark {
+  background-color: #342E37;
+  color: #E6F1F7;
+}

@@ -54,6 +54,7 @@ function NavButton({ children, isActive, onClick, to }) {
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
+  const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -106,6 +107,14 @@ export default function Navbar() {
     }
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   return (
     <nav className="fixed top-0 w-full z-50 px-4 sm:px-6 lg:px-8 pt-4">
       <div className="bg-[#F8CBFE] rounded-full shadow-sm">
@@ -153,6 +162,32 @@ export default function Navbar() {
             >
               Contact
             </NavButton>
+
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              style={{
+                backgroundColor: darkMode ? "#7630CC" : "#C295F3",
+                color: "white",
+                padding: "8px 12px",
+                borderRadius: "25px",
+                fontWeight: "600",
+                transition: "all 0.3s ease",
+                border: "none",
+                cursor: "pointer"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#B4E0F7";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                }
+              }
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = darkMode ? "#7630CC" : "#C295F3";
+                e.currentTarget.style.transform = "translateY(0)";
+                }
+              }
+            >
+              {darkMode ? "Light Mode" : "Dark Mode"}
+            </button>
           </div>
         </div>
       </div>
