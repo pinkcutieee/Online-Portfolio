@@ -65,6 +65,11 @@ p.boxed {
 }
 
 body.dark {
+  background-color: #342E37;
+  color: #E6F1F7;
+}
+
+body.dark .min-h-screen {
   background-image: url('/Online-Portfolio/dark-bg.png') !important;
   background-size: cover;
   background-repeat: no-repeat;
