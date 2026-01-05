@@ -69,7 +69,7 @@ function ProjectCard({ project }) {
   const [imgError] = useState(false);
 
   return (
-    <div className="relative flex gap-5 bg-[#FFEBFD] dark:bg-[#2a2a3a] p-5 rounded-xl shadow hover:shadow-sm transform hover:-translate-y-1 transition">
+    <div className="relative flex gap-5 bg-[#FFEBFD] p-5 rounded-xl shadow hover:shadow-sm transform hover:-translate-y-1 transition">
       <small className="absolute top-3 right-3 text-sm dark:text-gray-300">{project.date}</small>
       <div className="w-[300px] h-[300px] bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center">
         <img
