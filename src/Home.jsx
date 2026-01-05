@@ -117,7 +117,7 @@ function Home() {
                 Aspiring Full-Stack Developer & Designer
               </p>
             </div>
-            <a href="/Online-Portfolio/Resume.pdf" className="inline-block mt-2 px-6 py-2 bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
+            <a href="/Resume.pdf" className="inline-block mt-2 px-6 py-2 bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
               View Resume
             </a>
         </div>
