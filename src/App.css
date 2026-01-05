@@ -75,3 +75,16 @@ body.dark .min-h-screen {
   background-repeat: no-repeat;
   color: #E6F1F7;
 }
+
+body.dark p.boxed {
+  background-color: #2a2a3a;
+  color: #E6F1F7;
+}
+
+body.dark .window-titlebar {
+  background-color: #6B21A8;
+}
+
+body.dark .text-gray-700 {
+  color: #d1d5db !important;
+}
