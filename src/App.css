@@ -65,6 +65,6 @@ p.boxed {
 }
 
 body.dark {
-  background-color: #342E37;
+  background-image: url('/Online-Portfolio/dark-bg.png');
   color: #E6F1F7;
 }
