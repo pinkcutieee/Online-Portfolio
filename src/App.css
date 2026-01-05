@@ -9,7 +9,7 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
-h1, h2, h4{
+h1, h2, h4 {
   font-family: 'Nunito', sans-serif;
   font-weight: 800 !important;
 }
@@ -64,41 +64,29 @@ p.boxed {
   font-size: 10px;
 }
 
-body.dark {
+.dark {
   background-color: #342E37;
   color: #E6F1F7;
 }
 
-body.dark .min-h-screen {
-  background-image: url('/Online-Portfolio/dark-bg.png') !important;
+.dark .min-h-screen {
+  background-image: url('/Online-Portfolio/dark-bg.png');
   background-size: cover;
   background-repeat: no-repeat;
   color: #E6F1F7;
 }
 
-body.dark p.boxed {
+.dark p.boxed {
   background-color: #2a2a3a;
   color: #E6F1F7;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-body.dark .window-titlebar {
+.dark .window-titlebar {
   background-color: #6B21A8;
   color: #E6F1F7;
 }
 
-body.dark .window-icon {
+.dark .window-icon {
   color: #E6F1F7;
-}
-
-body.dark .text-gray-700 {
-  color: #d1d5db !important;
-}
-
-body.dark .text-gray-800 {
-  color: #d1d5db !important;
-}
-
-body.dark .text-gray-500 {
-  color: #9ca3af !important;
 }
