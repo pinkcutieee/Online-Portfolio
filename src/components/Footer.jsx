@@ -46,7 +46,7 @@ export default function Footer() {
             position: 'absolute',
             top: '20px',
             right: '20px',
-            backgroundColor: isDark ? '#C295F3' : '#262363',
+            backgroundColor: isDark ? '#262363' : '#C295F3',
             color: 'white',
             padding: '10px 20px',
             borderRadius: '25px',
@@ -92,7 +92,7 @@ export default function Footer() {
               style={{
                 width: '45px',
                 height: '45px',
-                backgroundColor: isDark ? '#C295F3' : '#262363',
+                backgroundColor: isDark ? '#262363' : '#C295F3',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
@@ -115,7 +115,7 @@ export default function Footer() {
               style={{
                 width: '45px',
                 height: '45px',
-                backgroundColor: isDark ? '#C295F3' : '#262363',
+                backgroundColor: isDark ? '#262363' : '#C295F3',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
@@ -138,7 +138,7 @@ export default function Footer() {
               style={{
                 width: '45px',
                 height: '45px',
-                backgroundColor: isDark ? '#C295F3' : '#262363',
+                backgroundColor: isDark ? '#262363' : '#C295F3',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
