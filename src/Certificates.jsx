@@ -118,7 +118,7 @@ export function Certificates() {
                 }
                 className="w-full flex justify-between items-center p-5 text-left"
                 style={{
-                  backgroundColor: isDark ? "#342E37" : "#E6F1F7",
+                  backgroundColor: isDark ? "#262363" : "#E6F1F7",
                   border: "none",
                   cursor: "pointer",
                   transition: "background-color 0.3s ease",
@@ -151,7 +151,7 @@ export function Certificates() {
               >
                 
               <div style={{
-                backgroundColor: isDark ? "#342E37" : "#FFEBFD",
+                backgroundColor: isDark ? "#2A2A2A" : "#FFEBFD",
                 padding: isOpen ? "20px" : "0 20px",
                 transition: "padding 0.3s ease",
                 }}
@@ -168,7 +168,7 @@ export function Certificates() {
                   key={index}
                   onClick={() => CertificateClick(cert)}
                   style={{
-                    backgroundColor: isDark ? "#2A2A2A" : "#FCFAF2",
+                    backgroundColor: isDark ? "#342E37" : "#FCFAF2",
                     borderRadius: "12px",
                     overflow: "hidden",
                     boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
