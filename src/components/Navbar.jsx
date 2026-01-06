@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Sun, Moon } from "lucide-react";
 
 function NavButton({ children, isActive, onClick, to, darkMode }) {
   const activeStyle = darkMode 
@@ -185,7 +186,10 @@ export default function Navbar() {
                 fontWeight: "600",
                 transition: "all 0.3s ease",
                 border: "none",
-                cursor: "pointer"
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = darkMode ? "#262363" : "#B4E0F7";
@@ -198,7 +202,7 @@ export default function Navbar() {
                 }
               }
             >
-              {darkMode ? "☀︎" : "☾"}
+              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </div>
         </div>
