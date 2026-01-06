@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "./components/NavBar";
 
 function ParticleBackground({ color = '#dc84c0', particleCount = 50 }) {
