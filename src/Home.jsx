@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Navbar from "./components/NavBar";
-import ParticleBackground from "./components/ParticleBackground";
 
 function ParticleBackground({ color = '#dc84c0', particleCount = 50 }) {
   const canvasRef = useRef(null);
