@@ -149,7 +149,7 @@ export default function Footer() {
                 e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#B4E0F7';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = isDark ? '#C295F3' : '#262363';
+                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
               }}
             >
               <img src="/Online-Portfolio/GitHub.png" alt="GitHub" className="w-5 h-5" />
