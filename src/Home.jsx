@@ -72,29 +72,43 @@ function ParticleBackground({ color = "#dc84c0", particleCount = 50 }) {
   );
 }
 
-function Home() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDark = () => setIsDark(document.documentElement.classList.contains('dark') || document.body.classList.contains('dark'));
-    checkDark();
-    const observer = new MutationObserver(checkDark);
-    observer.observe(document.documentElement, { attributes: true });
-    observer.observe(document.body, { attributes: true });
-    return () => observer.disconnect();
-  }, []);
-
-  const bgImage = isDark 
-    ? "url('/Online-Portfolio/newdark-bg.png')" 
-    : "url('/Online-Portfolio/bg.png')";
-
+function ProjectCard({ project }) {
   return (
-    <div 
-      className="min-h-screen w-screen relative bg-cover bg-center bg-no-repeat z-10 transition-all duration-500"
-      style={{ backgroundImage: bgImage }}
-    >
-      <ParticleBackground color={isDark ? "#B4E0F7" : "#dc84c0"} />
-      
+    <div className="relative flex gap-5 bg-[#FFEBFD] dark:bg-[#2a2a3a] p-5 rounded-xl shadow hover:-translate-y-1 transition text-black dark:text-[#E6F1F7]">
+      <small className="absolute top-3 right-3 text-sm">{project.date}</small>
+      <div className="w-[300px] h-[300px] bg-gray-200 rounded-lg overflow-hidden">
+        <img src={project.image} className="w-full h-full object-cover" />
+      </div>
+      <div className="flex-1">
+        <h4 className="font-bold mb-2">{project.title}</h4>
+        <p className="font-bold text-sm mb-1 dark:text-gray-300">
+          {project.names}
+        </p>
+        <p className="text-sm mb-2 dark:text-gray-300">
+          {project.description}
+        </p>
+        <a
+          href={project.link}
+          target="_blank"
+          className="text-[#7630CC] dark:text-[#B4E0F7] font-semibold hover:underline"
+        >
+          {project.title}
+        </a>
+        <br />
+        <small className="text-gray-500 dark:text-gray-400">
+          {project.details}
+        </small>
+      </div>
+    </div>
+  );
+}
+
+function Home() {
+  return (
+    <div className="min-h-screen w-screen relative bg-[url('/Online-Portfolio/bg.png')] dark:bg-[url('/Online-Portfolio/newdark-bg.png')] bg-cover bg-center bg-no-repeat z-10">
+      <ParticleBackground />
+      <Navbar />
+
       <section className="pt-24 text-center">
         <p className="text-7xl font-bold font-nunito text-black dark:text-[#E6F1F7]">
           Ariana
@@ -105,21 +119,19 @@ function Home() {
       </section>
 
       <section className="px-6 pt-10 space-y-8">
-        <div className="boxed bg-[#FFEBFD] dark:bg-[#2a2a3a] text-black dark:text-[#E6F1F7] relative">
+        <p className="boxed bg-[#FFEBFD] dark:bg-[#2a2a3a] text-black dark:text-[#E6F1F7]">
           <div className="window-titlebar"></div>
           <div className="window-controls">
             <div className="window-icon">─</div>
             <div className="window-icon">□</div>
             <div className="window-icon">✕</div>
           </div>
-          <div className="relative z-10">
-            <h3 className="text-2xl font-bold">Hi, I'm Ari!</h3>
-            <p className="mt-2">
-              I am a Computer Science student passionate about full-stack
-              development and creative design.
-            </p>
-          </div>
-        </div>
+          <h3>Hi, I'm Ari!</h3>
+          <p className="mt-2">
+            I am a Computer Science student passionate about full-stack
+            development and creative design.
+          </p>
+        </p>
       </section>
     </div>
   );

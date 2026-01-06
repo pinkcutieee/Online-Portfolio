@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
 
 .font-nunito {
   font-family: 'Nunito', sans-serif;
@@ -7,10 +7,9 @@
 
 body {
   font-family: 'Nunito', sans-serif;
-  transition: background-color 0.3s ease;
 }
 
-h1, h2, h4 {
+h1, h2, h4{
   font-family: 'Nunito', sans-serif;
   font-weight: 800 !important;
 }
@@ -20,6 +19,8 @@ h3, h5, h6 {
 }
 
 p.boxed {
+  background-color: #FFEBFD;
+  color: #333;
   padding: 15px;
   border-radius: 8px;
   position: relative;
@@ -41,6 +42,7 @@ p.boxed {
   padding-left: 12px;
   font-weight: 600;
   font-size: 30px;
+  color: #333;
 }
 
 .window-controls {
@@ -55,21 +57,48 @@ p.boxed {
 .window-icon {
   width: 46px;
   height: 32px;
+  color: #333;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 10px;
 }
 
-.dark body {
-  background-color: #1a1a2a;
+body.dark {
+  background-color: #342E37;
   color: #E6F1F7;
 }
 
-.dark .window-titlebar {
+body.dark .min-h-screen {
+  background-image: url('/Online-Portfolio/newdark-bg.png') !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #E6F1F7;
+}
+
+body.dark p.boxed {
+  background-color: #342e37;
+  color: #E6F1F7;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .window-titlebar {
   background-color: #A6427C;
+  color: #E6F1F7;
 }
 
-.dark .window-icon {
+body.dark .window-icon {
   color: #E6F1F7;
+}
+
+body.dark .text-gray-700 {
+  color: #E6F1F7 !important;
+}
+
+body.dark .text-gray-800 {
+  color: #E6F1F7 !important;
+}
+
+body.dark .text-gray-500 {
+  color: #9ca3af !important;
 }
