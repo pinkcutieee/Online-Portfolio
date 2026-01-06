@@ -77,13 +77,13 @@ body.dark .min-h-screen {
 }
 
 body.dark p.boxed {
-  background-color: #2a2a3a;
+  background-color: #342e37;
   color: #E6F1F7;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 body.dark .window-titlebar {
-  background-color: #6B21A8;
+  background-color: #7B337E;
   color: #E6F1F7;
 }
 
