@@ -46,7 +46,7 @@ export default function Footer() {
             position: 'absolute',
             top: '20px',
             right: '20px',
-            backgroundColor: isDark ? '#262363' : '#C295F3',
+            backgroundColor: isDark ? '#C295F3' : '#262363',
             color: 'white',
             padding: '10px 20px',
             borderRadius: '25px',
@@ -92,7 +92,7 @@ export default function Footer() {
               style={{
                 width: '45px',
                 height: '45px',
-                backgroundColor: isDark ? '#262363' : '#C295F3',
+                backgroundColor: isDark ? '#C295F3' : '#262363',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
@@ -115,7 +115,7 @@ export default function Footer() {
               style={{
                 width: '45px',
                 height: '45px',
-                backgroundColor: isDark ? '#262363' : '#C295F3',
+                backgroundColor: isDark ? '#C295F3' : '#262363',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
@@ -138,7 +138,7 @@ export default function Footer() {
               style={{
                 width: '45px',
                 height: '45px',
-                backgroundColor: isDark ? '#262363' : '#C295F3',
+                backgroundColor: isDark ? '#C295F3' : '#262363',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
@@ -149,7 +149,7 @@ export default function Footer() {
                 e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#B4E0F7';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
+                e.currentTarget.style.backgroundColor = isDark ? '#C295F3' : '#262363';
               }}
             >
               <img src="/Online-Portfolio/GitHub.png" alt="GitHub" className="w-5 h-5" />
