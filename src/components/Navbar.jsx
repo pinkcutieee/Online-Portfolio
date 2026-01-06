@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function NavButton({ children, isActive, onClick, to, darkMode }) {
-  const activeStyle = isActive ? "#FD9EF6" : "#C295F3";
+  const activeStyle = darkMode 
+    ? (isActive ? "#A5489E" : "#6A337E") 
+    : (isActive ? "#FD9EF6" : "#C295F3");
+
+  const hoverColor = darkMode ? "#262363" : "#B4E0F7";
 
   const style = {
     backgroundColor: activeStyle,
@@ -18,7 +22,7 @@ function NavButton({ children, isActive, onClick, to, darkMode }) {
   };
 
   const handleEnter = (e) => {
-    e.currentTarget.style.backgroundColor = "#B4E0F7";
+    e.currentTarget.style.backgroundColor = hoverColor;
     e.currentTarget.style.transform = "translateY(-2px)";
   };
 
@@ -118,7 +122,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 px-4 sm:px-6 lg:px-8 pt-4">
       <div className="rounded-full shadow-sm" style={{
-        backgroundColor: darkMode ? "#A6427C" : "#F8CBFE"
+        backgroundColor: darkMode ? "#342E37" : "#F8CBFE"
       }}>
         <div className="flex items-center justify-between h-16 sm:h-18 md:h-20 max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="flex items-center space-x-5">
@@ -174,7 +178,7 @@ export default function Navbar() {
             <button
               onClick={() => setDarkMode(!darkMode)}
               style={{
-                backgroundColor: darkMode ? "#C295F3" : "#6A337E",
+                backgroundColor: darkMode ? "#A5489E" : "#6A337E",
                 color: "white",
                 padding: "8px 12px",
                 borderRadius: "25px",
@@ -184,12 +188,12 @@ export default function Navbar() {
                 cursor: "pointer"
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#B4E0F7";
+                e.currentTarget.style.backgroundColor = darkMode ? "#262363" : "#B4E0F7";
                 e.currentTarget.style.transform = "translateY(-2px)";
                 }
               }
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = darkMode ? "#C295F3" : "#6A337E";
+                e.currentTarget.style.backgroundColor = darkMode ? "#A5489E" : "#6A337E";
                 e.currentTarget.style.transform = "translateY(0)";
                 }
               }
