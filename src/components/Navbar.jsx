@@ -179,7 +179,7 @@ export default function Navbar() {
             <button
               onClick={() => setDarkMode(!darkMode)}
               style={{
-                backgroundColor: darkMode ? "#A6427C" : "#6A337E",
+                backgroundColor: darkMode ? "#C295F3" : "#6A337E",
                 color: "white",
                 padding: "8px 12px",
                 borderRadius: "25px",

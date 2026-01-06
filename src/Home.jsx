@@ -1,6 +1,48 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "./components/NavBar";
 
+function ScrollReveal({ children, delay = 0 }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px'
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        transform: isVisible ? 'none' : 'translateY(50px)',
+        opacity: isVisible ? 1 : 0,
+        transition: `all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) ${delay}s`
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 function ParticleBackground({ color = '#dc84c0', particleCount = 50 }) {
   const canvasRef = useRef(null);
   
@@ -231,58 +273,36 @@ function Home() {
         </div>
 
         <article id="about" className="pt-8 px-4 md:px-8">
-          <div className="flex gap-4">
-            <img src="/Online-Portfolio/Laptop.png" alt="Laptop" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'cover'}}/>
-            <div className="flex-1">
-            <p className="boxed" style={{ color: "black" }}>
-            <div className="window-titlebar">
-            </div>
-              <div className="window-controls">
-                <div className="window-icon">─</div>
-                <div className="window-icon">□</div>
-                <div className="window-icon">✕</div>
-              </div>
-                <h3><b>Hi, I'm Ari!</b></h3>
-                <div className="text-lg">
-                  I am a 2nd-year Computer Science student at Asia Pacific College with a passion for full-stack development and creative design. 
-                  I constantly explore new technologies and techniques to enhance my skills and build innovative solutions that combine functionality 
-                  with aesthetics. I enjoy experimenting with both frontend and backend development, creating projects that reflect my interest.
-                  In addition to coding, I am passionate about digital art and design, which inspires the visuals I create in my projects.
-                </div>
-            </p>
-            </div>
-          </div>
-        </article>
-
-        <article className="pt-8 px-4 md:px-8">
-          <div className="flex gap-4">
-            <div className="flex-1">
+          <ScrollReveal>
+            <div className="flex gap-4">
+              <img src="/Online-Portfolio/Laptop.png" alt="Laptop" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'cover'}}/>
+              <div className="flex-1">
               <p className="boxed" style={{ color: "black" }}>
               <div className="window-titlebar">
               </div>
-              <div className="window-controls">
-                <div className="window-icon">─</div>
-                <div className="window-icon">□</div>
-                <div className="window-icon">✕</div>
-              </div>
-                <h3><b>Skills</b></h3>
-                <ul className="text-lg">
-                  <li>• HTML</li>
-                  <li>• CSS</li>
-                  <li>• Python</li>
-                  <li>• Java</li>
-                  <li>• JavaScript</li>
-                  <li>• MySQL</li>
-                  <li>• React</li>
-                  <li>• Bootstrap</li>
-                  <li>• Tailwind CSS</li>
-                  <li>• GitHub</li>
-                </ul>
+                <div className="window-controls">
+                  <div className="window-icon">─</div>
+                  <div className="window-icon">□</div>
+                  <div className="window-icon">✕</div>
+                </div>
+                  <h3><b>Hi, I'm Ari!</b></h3>
+                  <div className="text-lg">
+                    I am a 2nd-year Computer Science student at Asia Pacific College with a passion for full-stack development and creative design. 
+                    I constantly explore new technologies and techniques to enhance my skills and build innovative solutions that combine functionality 
+                    with aesthetics. I enjoy experimenting with both frontend and backend development, creating projects that reflect my interest.
+                    In addition to coding, I am passionate about digital art and design, which inspires the visuals I create in my projects.
+                  </div>
               </p>
+              </div>
             </div>
+          </ScrollReveal>
+        </article>
 
-            <div className="flex-1">
-              <p className="boxed" style={{ color: "black" }}>
+        <article className="pt-8 px-4 md:px-8">
+          <ScrollReveal delay={0.2}>
+            <div className="flex gap-4">
+              <div className="flex-1">
+                <p className="boxed" style={{ color: "black" }}>
                 <div className="window-titlebar">
                 </div>
                 <div className="window-controls">
@@ -290,22 +310,124 @@ function Home() {
                   <div className="window-icon">□</div>
                   <div className="window-icon">✕</div>
                 </div>
-                <h3><b>Experience</b></h3>
-                <ul className="text-lg">
-                  <li>• <b>Marketing Officer</b> - Junior Philippine Computer Society - Asia Pacific College (September 2025 - Present)</li>
-                  <li>• <b>President</b> - Information and Communications Technology Club - Conperey Integrated Learning School Inc. (October 2022 - June 2024)</li>
-                </ul>
-              </p>
+                  <h3><b>Skills</b></h3>
+                  <ul className="text-lg">
+                    <li>• HTML</li>
+                    <li>• CSS</li>
+                    <li>• Python</li>
+                    <li>• Java</li>
+                    <li>• JavaScript</li>
+                    <li>• MySQL</li>
+                    <li>• React</li>
+                    <li>• Bootstrap</li>
+                    <li>• Tailwind CSS</li>
+                    <li>• GitHub</li>
+                  </ul>
+                </p>
+              </div>
+
+              <div className="flex-1">
+                <p className="boxed" style={{ color: "black" }}>
+                  <div className="window-titlebar">
+                  </div>
+                  <div className="window-controls">
+                    <div className="window-icon">─</div>
+                    <div className="window-icon">□</div>
+                    <div className="window-icon">✕</div>
+                  </div>
+                  <h3><b>Experience</b></h3>
+                  <ul className="text-lg">
+                    <li>• <b>Marketing Officer</b> - Junior Philippine Computer Society - Asia Pacific College (September 2025 - Present)</li>
+                    <li>• <b>President</b> - Information and Communications Technology Club - Conperey Integrated Learning School Inc. (October 2022 - June 2024)</li>
+                  </ul>
+                </p>
+              </div>
+              <img src="/Online-Portfolio/Gear.png" alt="Gear" className="w-full h-auto object-cover rounded-lg" style={{width: '400px', objectFit: 'cover'}}/>
             </div>
-            <img src="/Online-Portfolio/Gear.png" alt="Gear" className="w-full h-auto object-cover rounded-lg" style={{width: '400px', objectFit: 'cover'}}/>
-          </div>
+          </ScrollReveal>
         </article>
 
         <article className="pt-8 px-4 md:px-8">
-          <div className="flex gap-4">
-            <img src="/Online-Portfolio/CLI.png" alt="CLI" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'contain'}}/>
-            <div className="flex-1">
-              <p className="boxed" style={{ color: "black" }}>
+          <ScrollReveal delay={0.3}>
+            <div className="flex gap-4">
+              <img src="/Online-Portfolio/CLI.png" alt="CLI" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'contain'}}/>
+              <div className="flex-1">
+                <p className="boxed" style={{ color: "black" }}>
+                  <div className="window-titlebar">
+                  </div>
+                  <div className="window-controls">
+                  <div className="window-icon">─</div>
+                  <div className="window-icon">□</div>
+                  <div className="window-icon">✕</div>
+                  </div>
+                  <h3><b>Tools & Software Skills</b></h3>
+                  <div className="grid grid-cols-3 gap-4 mt-4">
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/Microsoft.png" alt="Microsoft Office" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">Microsoft Office Apps</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/VSCode.png" alt="VS Code" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">VS Code</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/JetBrains.png" alt="JetBrains" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">JetBrains Apps</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/GitHubL.png" alt="GitHub" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">GitHub</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/ChatGPT.png" alt="ChatGPT" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">ChatGPT</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/Claude.png" alt="Claude" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">Claude</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/Procreate.png" alt="Procreate" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">Procreate</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/Figma.png" alt="Figma" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">Figma</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/Canva.png" alt="Canva" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">Canva</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/Kali.png" alt="Kali" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">Kali Linux</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/Ubuntu.png" alt="Ubuntu" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">Ubuntu Linux</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/Mysql.png" alt="MySQL" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">MySQL</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/XAMPP.png" alt="XAMPP" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">XAMPP</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/PacketTracer.png" alt="Packet Tracer" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">Packet Tracer</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/Tinkercad.png" alt="Tinkercad" className="w-16 h-16 object-contain mb-2" />
+                      <span className="text-sm">Tinkercad</span>
+                    </div>
+                  </div>
+                </p>
+              </div>
+
+              <div className="flex-1">
+                <p className="boxed" style={{ color: "black" }}>
                 <div className="window-titlebar">
                 </div>
                 <div className="window-controls">
@@ -313,98 +435,28 @@ function Home() {
                 <div className="window-icon">□</div>
                 <div className="window-icon">✕</div>
                 </div>
-                <h3><b>Tools & Software Skills</b></h3>
-                <div className="grid grid-cols-3 gap-4 mt-4">
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/Microsoft.png" alt="Microsoft Office" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">Microsoft Office Apps</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/VSCode.png" alt="VS Code" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">VS Code</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/JetBrains.png" alt="JetBrains" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">JetBrains Apps</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/GitHubL.png" alt="GitHub" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">GitHub</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/ChatGPT.png" alt="ChatGPT" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">ChatGPT</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/Claude.png" alt="Claude" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">Claude</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/Procreate.png" alt="Procreate" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">Procreate</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/Figma.png" alt="Figma" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">Figma</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/Canva.png" alt="Canva" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">Canva</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/Kali.png" alt="Kali" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">Kali Linux</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/Ubuntu.png" alt="Ubuntu" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">Ubuntu Linux</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/Mysql.png" alt="MySQL" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">MySQL</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/XAMPP.png" alt="XAMPP" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">XAMPP</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/PacketTracer.png" alt="Packet Tracer" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">Packet Tracer</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <img src="/Online-Portfolio/Tinkercad.png" alt="Tinkercad" className="w-16 h-16 object-contain mb-2" />
-                    <span className="text-sm">Tinkercad</span>
-                  </div>
-                </div>
-              </p>
-            </div>
-
-            <div className="flex-1">
-              <p className="boxed" style={{ color: "black" }}>
-              <div className="window-titlebar">
+                <h3><b>Education</b></h3>
+                  <ul className="text-lg">
+                    <li>• <b>Bachelor of Science in Computer Science</b> - Asia Pacific College (2024-2028)</li>
+                    <li>• Senior High School - Conperey Integrated Learning School Inc. (2022-2024)</li>
+                    <li>• Junior High School - Conperey Integrated Learning School Inc. (2018-2022)</li>
+                    <li>• Elementary - Conperey Integrated Learning School Inc. (2012-2018)</li>
+                  </ul>
+                </p>
               </div>
-              <div className="window-controls">
-              <div className="window-icon">─</div>
-              <div className="window-icon">□</div>
-              <div className="window-icon">✕</div>
-              </div>
-              <h3><b>Education</b></h3>
-                <ul className="text-lg">
-                  <li>• <b>Bachelor of Science in Computer Science</b> - Asia Pacific College (2024-2028)</li>
-                  <li>• Senior High School - Conperey Integrated Learning School Inc. (2022-2024)</li>
-                  <li>• Junior High School - Conperey Integrated Learning School Inc. (2018-2022)</li>
-                  <li>• Elementary - Conperey Integrated Learning School Inc. (2012-2018)</li>
-                </ul>
-              </p>
             </div>
-          </div>
+          </ScrollReveal>
         </article>
 
         <section id="projects" className="pt-8 px-4 md:px-8 pb-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-left">Projects</h2>
+          <ScrollReveal delay={0.1}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-left">Projects</h2>
+          </ScrollReveal>
           <div className="flex flex-col gap-3">
               {projects.map((project, index) => (
-                <ProjectCard key={index} project={project} />
+                <ScrollReveal key={index} delay={0.1 * (index + 1)}>
+                  <ProjectCard project={project} />
+                </ScrollReveal>
               ))}
           </div>
         </section>
