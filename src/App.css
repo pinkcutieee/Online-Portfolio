@@ -70,7 +70,7 @@ body.dark {
 }
 
 body.dark .min-h-screen {
-  background-image: url('/Online-Portfolio/dark-bg.png') !important;
+  background-image: url('/Online-Portfolio/newdark-bg.png') !important;
   background-size: cover;
   background-repeat: no-repeat;
   color: #E6F1F7;
