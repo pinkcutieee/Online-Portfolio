@@ -235,8 +235,9 @@ function ProjectCard({ project, darkMode }) {
 
 function Home({ darkMode }) {
   return (
-    <div className="min-h-screen w-screen bg-pink-200 relative"
+    <div className="min-h-screen w-screen relative"
       style={{
+        backgroundColor: darkMode ? '#342E37' : '#FFC0CB',
         backgroundImage: darkMode ? 'url(/Online-Portfolio/newdark-bg.png)' : 'url(/Online-Portfolio/bg.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
