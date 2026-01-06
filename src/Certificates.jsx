@@ -137,7 +137,7 @@ export function Certificates() {
                     color: isDark ? '#E6F1F7' : 'inherit'
                   }}
                 >
-                ▼
+                ❤︎
                 </span>
               </button>
 
