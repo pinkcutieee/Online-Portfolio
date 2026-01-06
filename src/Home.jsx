@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import Navbar from "./components/NavBar";
 
 function ScrollReveal({ children, delay = 0 }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -204,11 +205,12 @@ const projects = [
   }
 ];
 
-function ProjectCard({ project, darkMode }) {
+function ProjectCard({ project }) {
+  const [imgError] = useState(false);
+
   return (
-    <div className="relative flex gap-5 p-5 rounded-xl shadow hover:shadow-sm transform hover:-translate-y-1 transition"
-         style={{ backgroundColor: darkMode ? "#342E37" : "#FFEBFD" }}>
-      <small className="absolute top-3 right-3 text-sm" style={{ color: darkMode ? "#9ca3af" : "#666" }}>{project.date}</small>
+    <div className="relative flex gap-5 bg-[#FFEBFD] p-5 rounded-xl shadow hover:shadow-sm transform hover:-translate-y-1 transition">
+      <small className="absolute top-3 right-3 text-sm">{project.date}</small>
       <div className="w-[300px] h-[300px] bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center">
         <img
           src={project.image}
@@ -217,42 +219,42 @@ function ProjectCard({ project, darkMode }) {
       </div>
 
       <div className="flex-1 text-left">
-        <h4 className="font-bold text-sm md:text-base mb-2" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>{project.title}</h4>
-        <p className="font-bold text-sm mb-1" style={{ color: darkMode ? "#d1d5db" : "#374151" }}>{project.names}</p><br/>
-        <p className="text-medium mb-1" style={{ color: darkMode ? "#E6F1F7" : "#374151" }}>{project.description}</p>
+        <h4 className="font-bold text-sm md:text-base mb-2">{project.title}</h4>
+        <p className="font-bold text-gray-800 text-sm mb-1">{project.names}</p><br/>
+        <p className="text-gray-800 text-medium mb-1">{project.description}</p>
         <a href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-sm font-semibold hover:underline mb-2"
-            style={{ color: darkMode ? "#B4E0F7" : "#7630CC" }}>
+            className="inline-block text-sm text-[#7630CC] font-semibold hover:underline mb-2"
+            style={{ color: "#7630CC" }}>
             {project.title}
         </a><br/>
-        <small className="text-sm" style={{ color: darkMode ? "#9ca3af" : "#6b7280" }}>{project.details}</small>
+        <small className="text-gray-500 text-sm">{project.details}</small>
       </div>
     </div>
   );
 }
 
-function Home({ darkMode }) {
+function Home() {
   return (
-    <div className="min-h-screen w-screen relative"
+    <div className="min-h-screen w-screen bg-pink-200 relative"
       style={{
-        backgroundColor: darkMode ? '#342E37' : '#FFC0CB',
-        backgroundImage: darkMode ? 'url(/Online-Portfolio/newdark-bg.png)' : 'url(/Online-Portfolio/bg.png)',
+        backgroundImage: isDark ? 'url(/Online-Portfolio/newdark-bg.png)' : 'url(/Online-Portfolio/bg.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         zIndex: 1
       }}>
       
-      <ParticleBackground color={darkMode ? "#A6427C" : "#dc84c0"} particleCount={50} />
+      <ParticleBackground color="#dc84c0" particleCount={50} />
       
       <div className="relative" style={{ zIndex: 10 }}>
+        <Navbar />
         
         <div id="home" className="pt-20 px-4 flex gap-4 items-center">
           <div className="flex-1 flex flex-col justify-center items-center text-center">
-              <p className="text-6xl md:text-7xl lg:text-8xl mr-0 md:mr-16 lg:mr-48 font-bold font-nunito" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>Ariana</p>
-              <p className="text-6xl md:text-7xl lg:text-8xl mb-4 ml-0 md:ml-16 lg:ml-48 font-bold font-nunito" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>Saromo</p>
+              <p className="text-6xl md:text-7xl lg:text-8xl mr-0 md:mr-16 lg:mr-48 font-bold font-nunito">Ariana</p>
+              <p className="text-6xl md:text-7xl lg:text-8xl mb-4 ml-0 md:ml-16 lg:ml-48 font-bold font-nunito">Saromo</p>
               <div className="flex gap-2 mt-2 justify-center">
                 <p className="text-lg px-6 py-2 bg-[#FD9EF6] text-white rounded-full">
                   Computer Science Student
@@ -275,7 +277,7 @@ function Home({ darkMode }) {
             <div className="flex gap-4">
               <img src="/Online-Portfolio/Laptop.png" alt="Laptop" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'cover'}}/>
               <div className="flex-1">
-              <p className="boxed">
+              <p className="boxed" style={{ color: "black" }}>
               <div className="window-titlebar">
               </div>
                 <div className="window-controls">
@@ -300,7 +302,7 @@ function Home({ darkMode }) {
           <ScrollReveal delay={0.2}>
             <div className="flex gap-4">
               <div className="flex-1">
-                <p className="boxed">
+                <p className="boxed" style={{ color: "black" }}>
                 <div className="window-titlebar">
                 </div>
                 <div className="window-controls">
@@ -325,7 +327,7 @@ function Home({ darkMode }) {
               </div>
 
               <div className="flex-1">
-                <p className="boxed">
+                <p className="boxed" style={{ color: "black" }}>
                   <div className="window-titlebar">
                   </div>
                   <div className="window-controls">
@@ -350,7 +352,7 @@ function Home({ darkMode }) {
             <div className="flex gap-4">
               <img src="/Online-Portfolio/CLI.png" alt="CLI" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'contain'}}/>
               <div className="flex-1">
-                <p className="boxed">
+                <p className="boxed" style={{ color: "black" }}>
                   <div className="window-titlebar">
                   </div>
                   <div className="window-controls">
@@ -425,7 +427,7 @@ function Home({ darkMode }) {
               </div>
 
               <div className="flex-1">
-                <p className="boxed">
+                <p className="boxed" style={{ color: "black" }}>
                 <div className="window-titlebar">
                 </div>
                 <div className="window-controls">
@@ -448,12 +450,12 @@ function Home({ darkMode }) {
 
         <section id="projects" className="pt-8 px-4 md:px-8 pb-8">
           <ScrollReveal delay={0.1}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-left" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>Projects</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-left">Projects</h2>
           </ScrollReveal>
           <div className="flex flex-col gap-3">
               {projects.map((project, index) => (
                 <ScrollReveal key={index} delay={0.1 * (index + 1)}>
-                  <ProjectCard project={project} darkMode={darkMode} />
+                  <ProjectCard project={project} />
                 </ScrollReveal>
               ))}
           </div>

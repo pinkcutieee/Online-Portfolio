@@ -1,5 +1,65 @@
-export default function Navbar({ darkMode, setDarkMode }) {
+import { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Sun, Moon } from "lucide-react";
+
+function NavButton({ children, isActive, onClick, to, darkMode }) {
+  const activeStyle = darkMode 
+    ? (isActive ? "#A6427C" : "#6A337E") 
+    : (isActive ? "#FD9EF6" : "#C295F3");
+
+  const hoverColor = darkMode ? "#262363" : "#B4E0F7";
+
+  const style = {
+    backgroundColor: activeStyle,
+    color: "white",
+    padding: "8px 18px",
+    borderRadius: "25px",
+    fontWeight: "600",
+    transition: "all 0.3s ease",
+    border: "none",
+    cursor: "pointer",
+    textDecoration: "none",
+    display: "inline-block"
+  };
+
+  const handleEnter = (e) => {
+    e.currentTarget.style.backgroundColor = hoverColor;
+    e.currentTarget.style.transform = "translateY(-2px)";
+  };
+
+  const handleLeave = (e) => {
+    e.currentTarget.style.backgroundColor = activeStyle;
+    e.currentTarget.style.transform = "translateY(0)";
+  };
+
+  if (to) {
+    return (
+      <Link
+        to={to}
+        style={style}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <button
+      onClick={onClick}
+      style={style}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      {children}
+    </button>
+  );
+}
+
+export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
+  const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -17,25 +77,48 @@ export default function Navbar({ darkMode, setDarkMode }) {
   useEffect(() => {
     if (location.pathname === "/certificates") {
       setActiveSection("certificates");
-    } else if (location.pathname === "/contacts") {
+      return;
+    }
+
+    if (location.pathname === "/contacts") {
       setActiveSection("contacts");
-    } else if (location.pathname === "/") {
+      return;
+    }
+
+    if (location.pathname === "/") {
       const onScroll = () => {
         const sections = ["home", "about", "projects"];
         const scrollPosition = window.scrollY + 150;
+
         for (const section of sections) {
           const element = document.getElementById(section);
-          if (element && scrollPosition >= element.offsetTop && scrollPosition < element.offsetTop + element.offsetHeight) {
-            setActiveSection(section);
-            break;
+          if (element) {
+            const { offsetTop, offsetHeight } = element;
+            if (
+              scrollPosition >= offsetTop &&
+              scrollPosition < offsetTop + offsetHeight
+            ) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
       };
+
       window.addEventListener("scroll", onScroll);
       onScroll();
+
       return () => window.removeEventListener("scroll", onScroll);
     }
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [darkMode]);
 
   return (
     <nav className="fixed top-0 w-full z-50 px-4 sm:px-6 lg:px-8 pt-4">
@@ -57,11 +140,41 @@ export default function Navbar({ darkMode, setDarkMode }) {
           </div>
 
           <div className="ml-auto flex items-center gap-2 sm:gap-3">
-            <NavButton to="/" isActive={activeSection === "home"} darkMode={darkMode}>Home</NavButton>
-            <NavButton onClick={() => handleSectionClick("about")} isActive={activeSection === "about"} darkMode={darkMode}>About</NavButton>
-            <NavButton onClick={() => handleSectionClick("projects")} isActive={activeSection === "projects"} darkMode={darkMode}>Projects</NavButton>
-            <NavButton to="/certificates" isActive={activeSection === "certificates"} darkMode={darkMode}>Certificates</NavButton>
-            <NavButton to="/contacts" isActive={activeSection === "contacts"} darkMode={darkMode}>Contact</NavButton>
+            <NavButton to="/" isActive={activeSection === "home"} darkMode={darkMode}>
+              Home
+            </NavButton>
+
+            <NavButton
+              onClick={() => handleSectionClick("about")}
+              isActive={activeSection === "about"}
+              darkMode={darkMode}
+            >
+              About
+            </NavButton>
+
+            <NavButton
+              onClick={() => handleSectionClick("projects")}
+              isActive={activeSection === "projects"}
+              darkMode={darkMode}
+            >
+              Projects
+            </NavButton>
+
+            <NavButton
+              to="/certificates"
+              isActive={activeSection === "certificates"}
+              darkMode={darkMode}
+            >
+              Certificates
+            </NavButton>
+
+            <NavButton
+              to="/contacts"
+              isActive={activeSection === "contacts"}
+              darkMode={darkMode}
+            >
+              Contact
+            </NavButton>
 
             <button
               onClick={() => setDarkMode(!darkMode)}
@@ -78,8 +191,16 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 alignItems: "center",
                 justifyContent: "center"
               }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = darkMode ? "#262363" : "#B4E0F7"}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = darkMode ? "#C295F3" : "#6A337E"}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = darkMode ? "#262363" : "#B4E0F7";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                }
+              }
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = darkMode ? "#C295F3" : "#6A337E";
+                e.currentTarget.style.transform = "translateY(0)";
+                }
+              }
             >
               {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
