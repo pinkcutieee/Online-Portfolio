@@ -19,7 +19,7 @@ export function Contacts() {
     <div
       className="min-h-screen w-screen"
       style={{
-        backgroundImage: isDark ? 'url(/Online-Portfolio/dark-bg.png)' : 'url(/Online-Portfolio/bg1.png)',
+        backgroundImage: isDark ? 'url(/Online-Portfolio/newdark-bg1.png)' : 'url(/Online-Portfolio/bg1.png)',
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
