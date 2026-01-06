@@ -239,7 +239,7 @@ function Home() {
   return (
     <div className="min-h-screen w-screen bg-pink-200 relative"
       style={{
-        backgroundImage: 'url(/Online-Portfolio/bg.png)',
+        backgroundImage: isDark ? 'url(/Online-Portfolio/newdark-bg.png)' : 'url(/Online-Portfolio/bg.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
