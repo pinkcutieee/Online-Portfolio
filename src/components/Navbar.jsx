@@ -1,16 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Sun, Moon } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 
 function NavButton({ children, isActive, onClick, to, darkMode }) {
-  const activeStyle = darkMode 
-    ? (isActive ? "#A6427C" : "#6A337E") 
-    : (isActive ? "#FD9EF6" : "#C295F3");
-
-  const hoverColor = darkMode ? "#262363" : "#B4E0F7";
+  const activeStyle = isActive ? "#FD9EF6" : "#C295F3";
 
   const style = {
-    backgroundColor: activeStyle,
+    backgroundColor: darkMode ? (isActive ? "#A5489E" : "#6A337E") : activeStyle,
     color: "white",
     padding: "8px 18px",
     borderRadius: "25px",
@@ -23,12 +19,12 @@ function NavButton({ children, isActive, onClick, to, darkMode }) {
   };
 
   const handleEnter = (e) => {
-    e.currentTarget.style.backgroundColor = hoverColor;
+    e.currentTarget.style.backgroundColor = darkMode ? "#262363" : "#B4E0F7";
     e.currentTarget.style.transform = "translateY(-2px)";
   };
 
   const handleLeave = (e) => {
-    e.currentTarget.style.backgroundColor = activeStyle;
+    e.currentTarget.style.backgroundColor = darkMode ? (isActive ? "#A5489E" : "#6A337E") : activeStyle;
     e.currentTarget.style.transform = "translateY(0)";
   };
 
@@ -57,9 +53,8 @@ function NavButton({ children, isActive, onClick, to, darkMode }) {
   );
 }
 
-export default function Navbar() {
+export default function Navbar({ darkMode, setDarkMode }) {
   const [activeSection, setActiveSection] = useState("home");
-  const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -111,14 +106,6 @@ export default function Navbar() {
       return () => window.removeEventListener("scroll", onScroll);
     }
   }, [location.pathname]);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [darkMode]);
 
   return (
     <nav className="fixed top-0 w-full z-50 px-4 sm:px-6 lg:px-8 pt-4">
@@ -193,14 +180,10 @@ export default function Navbar() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = darkMode ? "#262363" : "#B4E0F7";
-                e.currentTarget.style.transform = "translateY(-2px)";
-                }
-              }
+              }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = darkMode ? "#C295F3" : "#6A337E";
-                e.currentTarget.style.transform = "translateY(0)";
-                }
-              }
+              }}
             >
               {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
