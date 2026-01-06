@@ -118,7 +118,7 @@ export function Certificates() {
                 }
                 className="w-full flex justify-between items-center p-5 text-left"
                 style={{
-                  backgroundColor: isDark ? "#262363" : "#E6F1F7",
+                  backgroundColor: isDark ? "#1f1c53ff" : "#E6F1F7",
                   border: "none",
                   cursor: "pointer",
                   transition: "background-color 0.3s ease",
