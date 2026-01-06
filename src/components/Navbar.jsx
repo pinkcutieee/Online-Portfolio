@@ -123,7 +123,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-18 md:h-20 max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="flex items-center space-x-5">
             <img
-              src="/Online-Portfolio/Black Logo.png"
+              src={darkMode ? "/Online-Portfolio/White Logo.png" : "/Online-Portfolio/Black Logo.png"}
               alt="Logo"
               className="h-8 sm:h-15 md:h-12"
             />
@@ -174,7 +174,7 @@ export default function Navbar() {
             <button
               onClick={() => setDarkMode(!darkMode)}
               style={{
-                backgroundColor: darkMode ? "#7630CC" : "#C295F3",
+                backgroundColor: darkMode ? "#C295F3" : "#6A337E",
                 color: "white",
                 padding: "8px 12px",
                 borderRadius: "25px",
@@ -189,7 +189,7 @@ export default function Navbar() {
                 }
               }
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = darkMode ? "#7630CC" : "#C295F3";
+                e.currentTarget.style.backgroundColor = darkMode ? "#C295F3" : "#6A337E";
                 e.currentTarget.style.transform = "translateY(0)";
                 }
               }

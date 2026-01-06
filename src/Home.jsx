@@ -248,8 +248,6 @@ function Home() {
                   I constantly explore new technologies and techniques to enhance my skills and build innovative solutions that combine functionality 
                   with aesthetics. I enjoy experimenting with both frontend and backend development, creating projects that reflect my interest.
                   In addition to coding, I am passionate about digital art and design, which inspires the visuals I create in my projects.
-                  I am eager to learn new tools and frameworks, tackle challenges, and find creative solutions.
-                  In my free time, I enjoy arts and crafts, gaming, and other creative hobbies that inspire my work.
                 </div>
             </p>
             </div>

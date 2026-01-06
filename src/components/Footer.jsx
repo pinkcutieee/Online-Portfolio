@@ -72,7 +72,11 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <div>
           <div className="flex items-center space-x-3 mb-4">
-            <img src="/Online-Portfolio/Black Logo.png" alt="Logo" className="h-10" />
+            <img 
+              src={isDark ? "/Online-Portfolio/White Logo.png" : "/Online-Portfolio/Black Logo.png"} 
+              alt="Logo" 
+              className="h-10" 
+            />
             <h3 className="text-xl font-bold" style={{
               color: isDark ? '#E6F1F7' : 'inherit'
             }}>Ariana Saromo</h3>
