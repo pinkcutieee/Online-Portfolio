@@ -57,11 +57,11 @@ export default function Footer() {
             transition: 'all 0.3s ease'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#B4E0F7';
+            e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#B4E0F7';
             e.currentTarget.style.transform = 'translateY(-2px)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
+            e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#C295F3';
             e.currentTarget.style.transform = 'translateY(0)';
           }}
         >
@@ -100,10 +100,10 @@ export default function Footer() {
                 transition: 'all 0.3s ease'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#B4E0F7';
+                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#B4E0F7';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
+                e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#C295F3';
               }}
             >
               <img src="/Online-Portfolio/Email.png" alt="Email" className="w-5 h-5" />
@@ -123,10 +123,10 @@ export default function Footer() {
                 transition: 'all 0.3s ease'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#B4E0F7';
+                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#B4E0F7';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
+                e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#C295F3';
               }}
             >
               <img src="/Online-Portfolio/LinkedIn.png" alt="LinkedIn" className="w-5 h-5" />
@@ -146,10 +146,10 @@ export default function Footer() {
                 transition: 'all 0.3s ease'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#B4E0F7';
+                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#B4E0F7';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
+                e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#C295F3';
               }}
             >
               <img src="/Online-Portfolio/GitHub.png" alt="GitHub" className="w-5 h-5" />
