@@ -118,14 +118,14 @@ export function Certificates() {
                 }
                 className="w-full flex justify-between items-center p-5 text-left"
                 style={{
-                  backgroundColor: isDark ? "#A6427C" : "#E6F1F7",
+                  backgroundColor: "#A6427C",
                   border: "none",
                   cursor: "pointer",
                   transition: "background-color 0.3s ease",
                 }}
               >
                 <h3 className="text-xl md:text-2xl font-bold" style={{
-                  color: isDark ? '#E6F1F7' : 'inherit'
+                  color: '#E6F1F7'
                 }}>
                   {category.category}
                 </h3>
@@ -134,10 +134,10 @@ export function Certificates() {
                     fontSize: "24px",
                     transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                     transition: "transform 0.3s ease",
-                    color: isDark ? '#E6F1F7' : 'inherit'
+                    color: '#E6F1F7'
                   }}
                 >
-                ▼
+                ❤︎
                 </span>
               </button>
 
