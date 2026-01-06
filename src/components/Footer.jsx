@@ -34,7 +34,7 @@ export default function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: isDark ? '#2a2a3a' : '#F8CBFE',
+        backgroundColor: isDark ? '#A5489E' : '#F8CBFE',
         padding: '40px 20px 20px',
         position: 'relative',
       }}
@@ -46,7 +46,7 @@ export default function Footer() {
             position: 'absolute',
             top: '20px',
             right: '20px',
-            backgroundColor: '#C295F3',
+            backgroundColor: isDark ? '#262363' : '#C295F3',
             color: 'white',
             padding: '10px 20px',
             borderRadius: '25px',
@@ -57,11 +57,11 @@ export default function Footer() {
             transition: 'all 0.3s ease'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#B4E0F7';
+            e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#B4E0F7';
             e.currentTarget.style.transform = 'translateY(-2px)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#C295F3';
+            e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
             e.currentTarget.style.transform = 'translateY(0)';
           }}
         >
@@ -92,12 +92,18 @@ export default function Footer() {
               style={{
                 width: '45px',
                 height: '45px',
-                backgroundColor: '#C295F3',
+                backgroundColor: isDark ? '#262363' : '#C295F3',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                transition: 'transform 0.3s ease'
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#B4E0F7';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
               }}
             >
               <img src="/Online-Portfolio/Email.png" alt="Email" className="w-5 h-5" />
@@ -109,12 +115,18 @@ export default function Footer() {
               style={{
                 width: '45px',
                 height: '45px',
-                backgroundColor: '#C295F3',
+                backgroundColor: isDark ? '#262363' : '#C295F3',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                transition: 'transform 0.3s ease'
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#B4E0F7';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
               }}
             >
               <img src="/Online-Portfolio/LinkedIn.png" alt="LinkedIn" className="w-5 h-5" />
@@ -126,12 +138,18 @@ export default function Footer() {
               style={{
                 width: '45px',
                 height: '45px',
-                backgroundColor: '#C295F3',
+                backgroundColor: isDark ? '#262363' : '#C295F3',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                transition: 'transform 0.3s ease'
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#B4E0F7';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
               }}
             >
               <img src="/Online-Portfolio/GitHub.png" alt="GitHub" className="w-5 h-5" />

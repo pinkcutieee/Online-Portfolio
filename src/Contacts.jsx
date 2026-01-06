@@ -41,7 +41,7 @@ export function Contacts() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-6"
           style={{
-            backgroundColor: isDark ? '#2a2a3a' : '#FFEBFD',
+            backgroundColor: isDark ? '#342E37' : '#FFEBFD',
             padding: '20px',
             borderRadius: '15px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
@@ -78,7 +78,7 @@ export function Contacts() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div 
             style={{
-              backgroundColor: isDark ? '#2a2a3a' : '#FFEBFD',
+              backgroundColor: isDark ? '#342E37' : '#FFEBFD',
               borderRadius: '15px',
               padding: '25px',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -146,7 +146,7 @@ export function Contacts() {
 
           <div 
             style={{
-              backgroundColor: isDark ? '#2a2a3a' : '#FFEBFD',
+              backgroundColor: isDark ? '#342E37' : '#FFEBFD',
               borderRadius: '15px',
               padding: '25px',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -183,13 +183,13 @@ export function Contacts() {
               onMouseEnter={(e) => e.target.style.textDecoration = 'underline'}
               onMouseLeave={(e) => e.target.style.textDecoration = 'none'}
             >
-              +63 995 775 7988
+              +12 345 678 9101
             </a>
           </div>
 
           <div 
             style={{
-              backgroundColor: isDark ? '#2a2a3a' : '#FFEBFD',
+              backgroundColor: isDark ? '#342E37' : '#FFEBFD',
               borderRadius: '15px',
               padding: '25px',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -229,7 +229,7 @@ export function Contacts() {
 
           <div 
             style={{
-              backgroundColor: isDark ? '#2a2a3a' : '#FFEBFD',
+              backgroundColor: isDark ? '#342E37' : '#FFEBFD',
               borderRadius: '15px',
               padding: '25px',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -275,7 +275,7 @@ export function Contacts() {
 
           <div 
             style={{
-              backgroundColor: isDark ? '#2a2a3a' : '#FFEBFD',
+              backgroundColor: isDark ? '#342E37' : '#FFEBFD',
               borderRadius: '15px',
               padding: '25px',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -321,7 +321,7 @@ export function Contacts() {
 
           <div 
             style={{
-              backgroundColor: isDark ? '#2a2a3a' : '#FFEBFD',
+              backgroundColor: isDark ? '#342E37' : '#FFEBFD',
               borderRadius: '15px',
               padding: '25px',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',

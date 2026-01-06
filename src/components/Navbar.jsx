@@ -197,7 +197,7 @@ export default function Navbar() {
                 }
               }
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = darkMode ? "#A6427C" : "#6A337E";
+                e.currentTarget.style.backgroundColor = darkMode ? "#C295F3" : "#6A337E";
                 e.currentTarget.style.transform = "translateY(0)";
                 }
               }
