@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import Home from "./Home";
@@ -7,25 +6,15 @@ import Contacts from "./Contacts";
 import Footer from "./components/Footer";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [darkMode]);
-
   return (
     <>
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home darkMode={darkMode} />} />
-        <Route path="/certificates" element={<Certificates darkMode={darkMode} />} />
-        <Route path="/contacts" element={<Contacts darkMode={darkMode} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/certificates" element={<Certificates />} />
+        <Route path="/contacts" element={<Contacts />} />
       </Routes>
-      <Footer darkMode={darkMode} />
+      <Footer />
     </>
   );
 }
