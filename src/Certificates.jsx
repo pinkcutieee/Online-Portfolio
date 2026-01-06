@@ -100,7 +100,7 @@ export function Certificates() {
           color: isDark ? '#E6F1F7' : 'inherit'
         }}>My Certificates</h1>
         <p className="text-lg" style={{
-          color: isDark ? '#d1d5db' : 'inherit'
+          color: isDark ? '#E6F1F7' : 'inherit'
         }}>
           A collection of my certifications and achievements.
         </p>

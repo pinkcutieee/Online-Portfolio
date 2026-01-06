@@ -18,6 +18,7 @@ h3, h5, h6 {
   font-family: 'Nunito', sans-serif;
 }
 
+/* Windows styling */
 p.boxed {
   background-color: #FFEBFD;
   color: #333;
@@ -64,6 +65,7 @@ p.boxed {
   font-size: 10px;
 }
 
+/* Dark mode styles */
 body.dark {
   background-color: #342E37;
   color: #E6F1F7;
@@ -133,6 +135,7 @@ body.dark small {
   color: #9ca3af !important;
 }
 
+/* Dark mode for projects card */
 body.dark .bg-\[\#FFEBFD\] {
   background-color: #342e37 !important;
 }
@@ -143,4 +146,17 @@ body.dark a {
 
 body.dark .text-\[\#7630CC\] {
   color: #C295F3 !important;
+}
+
+/* Dark mode button colors */
+body.dark .bg-\[\#FD9EF6\] {
+  background-color: #A5489E !important;
+}
+
+body.dark .bg-\[\#C295F3\] {
+  background-color: #6A337E !important;
+}
+
+body.dark .hover\:bg-\[\#B4E0F7\]:hover {
+  background-color: #262363 !important;
 }

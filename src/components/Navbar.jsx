@@ -118,7 +118,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 px-4 sm:px-6 lg:px-8 pt-4">
       <div className="rounded-full shadow-sm" style={{
-        backgroundColor: darkMode ? "#2a2a3a" : "#F8CBFE"
+        backgroundColor: darkMode ? "#A6427C" : "#F8CBFE"
       }}>
         <div className="flex items-center justify-between h-16 sm:h-18 md:h-20 max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="flex items-center space-x-5">
