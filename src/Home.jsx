@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "./components/NavBar";
 
-function ParticleBackground({ color = '#dc84c0', particleCount = 50 }) {
+function IridescenceBackground() {
   const canvasRef = useRef(null);
   
   useEffect(() => {
@@ -10,7 +10,7 @@ function ParticleBackground({ color = '#dc84c0', particleCount = 50 }) {
     
     const ctx = canvas.getContext('2d');
     let animationFrameId;
-    let particles = [];
+    let time = 0;
     
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -20,64 +20,50 @@ function ParticleBackground({ color = '#dc84c0', particleCount = 50 }) {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
-    class Particle {
-      constructor() {
-        this.reset();
-        this.y = Math.random() * canvas.height;
-        this.opacity = Math.random() * 0.5 + 0.2;
-      }
-      
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = -10;
-        this.speed = Math.random() * 1 + 0.5;
-        this.size = Math.random() * 3 + 1;
-        this.opacity = Math.random() * 0.5 + 0.2;
-      }
-      
-      update() {
-        this.y += this.speed;
-        if (this.y > canvas.height) {
-          this.reset();
-        }
-      }
-      
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `${color}${Math.floor(this.opacity * 255).toString(16).padStart(2, '0')}`;
-        ctx.fill();
-      }
-    }
-    
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
+    const blobs = Array.from({ length: 5 }, (_, i) => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 300 + 200,
+      speedX: (Math.random() - 0.5) * 0.5,
+      speedY: (Math.random() - 0.5) * 0.5,
+      hue: i * 72
+    }));
     
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
+      time += 0.01;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+      blobs.forEach((blob, index) => {
+        blob.x += blob.speedX;
+        blob.y += blob.speedY;
+        
+        if (blob.x < -blob.radius || blob.x > canvas.width + blob.radius) {
+          blob.speedX *= -1;
+        }
+        if (blob.y < -blob.radius || blob.y > canvas.height + blob.radius) {
+          blob.speedY *= -1;
+        }
+        
+        const hue = (blob.hue + time * 20) % 360;
+        
+        const gradient = ctx.createRadialGradient(
+          blob.x, blob.y, 0,
+          blob.x, blob.y, blob.radius
+        );
+        
+        gradient.addColorStop(0, `hsla(${hue}, 80%, 70%, 0.6)`);
+        gradient.addColorStop(0.5, `hsla(${(hue + 30) % 360}, 75%, 65%, 0.4)`);
+        gradient.addColorStop(1, `hsla(${(hue + 60) % 360}, 70%, 60%, 0)`);
+        
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(blob.x, blob.y, blob.radius, 0, Math.PI * 2);
+        ctx.fill();
       });
       
-      particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach(p2 => {
-          const dx = p1.x - p2.x;
-          const dy = p1.y - p2.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < 150) {
-            ctx.beginPath();
-            ctx.strokeStyle = `${color}${Math.floor((1 - distance / 150) * 0.2 * 255).toString(16).padStart(2, '0')}`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
-          }
-        });
-      });
+      ctx.filter = 'blur(60px)';
+      ctx.globalCompositeOperation = 'overlay';
       
       animationFrameId = requestAnimationFrame(animate);
     };
@@ -88,16 +74,17 @@ function ParticleBackground({ color = '#dc84c0', particleCount = 50 }) {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [color, particleCount]);
+  }, []);
   
   return (
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 1 }}
+      style={{ zIndex: 1, mixBlendMode: 'screen' }}
     />
   );
 }
+
 
 const projects = [
   {
@@ -202,7 +189,7 @@ function Home() {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}>
-      <ParticleBackground color="#dc84c0" particleCount={50} />
+      <IridescenceBackground />
     <Navbar />
       <div id="home" className="pt-20 px-4 flex gap-4 items-center">
         <div className="flex-1 flex flex-col justify-center items-center text-center">
