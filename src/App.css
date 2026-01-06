@@ -83,7 +83,7 @@ body.dark p.boxed {
 }
 
 body.dark .window-titlebar {
-  background-color: #7B337E;
+  background-color: #A6427C;
   color: #E6F1F7;
 }
 
@@ -92,13 +92,13 @@ body.dark .window-icon {
 }
 
 body.dark .text-gray-700 {
-  color: #d1d5db !important;
+  color: #E6F1F7 !important;
 }
 
 body.dark .text-gray-800 {
-  color: #d1d5db !important;
+  color: #E6F1F7 !important;
 }
 
 body.dark .text-gray-500 {
-  color: #9ca3af !important;
+  color: #E6F1F7 !important;
 }
