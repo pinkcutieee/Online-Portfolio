@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Navbar from "./components/NavBar";
+import ParticleBackground from "./components/ParticleBackground";
+
 
 const projects = [
   {
@@ -104,6 +106,7 @@ function Home() {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}>
+      <ParticleBackground color="#dc84c0" particleCount={50} />
     <Navbar />
       <div id="home" className="pt-20 px-4 flex gap-4 items-center">
         <div className="flex-1 flex flex-col justify-center items-center text-center">
