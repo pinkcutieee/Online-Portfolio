@@ -1,13 +1,32 @@
+import { useState, useEffect } from "react";
+
 export default function Contacts() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDark = () => setIsDark(document.documentElement.classList.contains('dark') || document.body.classList.contains('dark'));
+    checkDark();
+    const observer = new MutationObserver(checkDark);
+    observer.observe(document.documentElement, { attributes: true });
+    return () => observer.disconnect();
+  }, []);
+
+  const bgImage = isDark 
+    ? "url('/Online-Portfolio/dark-bg.png')" 
+    : "url('/Online-Portfolio/bg1.png')";
+
   return (
-    <div className="min-h-screen w-screen bg-[url('/Online-Portfolio/bg1.png')] dark:bg-[url('/Online-Portfolio/dark-bg.png')] bg-cover bg-no-repeat">
+    <div 
+      className="min-h-screen w-screen bg-cover bg-no-repeat transition-all duration-500"
+      style={{ backgroundImage: bgImage }}
+    >
       <div className="pt-40 px-4 md:px-8 pb-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black dark:text-[#E6F1F7]">
             Connect with Me
           </h1>
           <p className="text-lg mb-8 text-gray-700 dark:text-gray-300">
-            Feel free to reach out and connect with me me through any of the following:
+            Feel free to reach out and connect with me through any of the following:
           </p>
         </div>
       </div>
@@ -38,86 +57,22 @@ export default function Contacts() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="rounded-[15px] p-6 text-center bg-[#FFEBFD] dark:bg-[#2a2a3a] shadow transition hover:-translate-y-1">
-              <div className="flex justify-center mb-4">
-                <img src="/Online-Portfolio/BunEmail.png" className="w-[200px] h-[200px]" />
+            {[
+              { img: "BunEmail.png", title: "Email", content: <><a className="block text-sm text-[#A6427C] dark:text-[#B4E0F7]" href="mailto:afsaromo@student.apc.edu.ph">afsaromo@student.apc.edu.ph</a><a className="block text-sm text-[#A6427C] dark:text-[#B4E0F7]" href="mailto:ririariii15@gmail.com">ririariii15@gmail.com</a></> },
+              { img: "BunPhone.png", title: "Phone", content: <a className="text-[#A6427C] dark:text-[#B4E0F7]" href="tel:+639957757988">+63 995 775 7988</a> },
+              { img: "BunLI.png", title: "LinkedIn", content: <a className="text-[#A6427C] dark:text-[#B4E0F7]" href="https://www.linkedin.com/in/ariana-may-s-6a6ba6328/" target="_blank">Ariana May Saromo</a> },
+              { img: "BunGH.png", title: "GitHub", content: <a className="text-[#A6427C] dark:text-[#B4E0F7]" href="https://github.com/pinkcutieee" target="_blank">pinkcutieee</a> },
+              { img: "BunTH.png", title: "Trailhead", content: <a className="text-[#A6427C] dark:text-[#B4E0F7]" href="https://www.salesforce.com/trailblazer/xne2vyi84ilms2r1b8" target="_blank">Ariana May Saromo</a> },
+              { img: "BunML.png", title: "Microsoft Learn", content: <a className="text-[#A6427C] dark:text-[#B4E0F7]" href="https://learn.microsoft.com/en-us/users/arianamaysaromo-1068/" target="_blank">Ariana May Saromo</a> }
+            ].map((item, idx) => (
+              <div key={idx} className="rounded-[15px] p-6 text-center bg-[#FFEBFD] dark:bg-[#2a2a3a] shadow transition hover:-translate-y-1">
+                <div className="flex justify-center mb-4">
+                  <img src={`/Online-Portfolio/${item.img}`} className="w-[150px] h-[150px] object-contain" />
+                </div>
+                <h3 className="font-bold text-lg mb-2 text-black dark:text-[#E6F1F7]">{item.title}</h3>
+                {item.content}
               </div>
-              <h3 className="font-bold text-lg mb-3 text-black dark:text-[#E6F1F7]">Email</h3>
-              <p className="text-xs mb-1 text-gray-600 dark:text-gray-400">Primary</p>
-              <a className="block text-sm text-[#A6427C] dark:text-[#B4E0F7]" href="mailto:afsaromo@student.apc.edu.ph">
-                afsaromo@student.apc.edu.ph
-              </a>
-              <p className="text-xs mt-2 mb-1 text-gray-600 dark:text-gray-400">Secondary</p>
-              <a className="block text-sm text-[#A6427C] dark:text-[#B4E0F7]" href="mailto:ririariii15@gmail.com">
-                ririariii15@gmail.com
-              </a>
-            </div>
-
-            <div className="rounded-[15px] p-6 text-center bg-[#FFEBFD] dark:bg-[#2a2a3a] shadow transition hover:-translate-y-1">
-              <div className="flex justify-center mb-4">
-                <img src="/Online-Portfolio/BunPhone.png" className="w-[200px] h-[200px]" />
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-black dark:text-[#E6F1F7]">Phone</h3>
-              <a className="text-[#A6427C] dark:text-[#B4E0F7]" href="tel:+639957757988">
-                +63 995 775 7988
-              </a>
-            </div>
-
-            <div className="rounded-[15px] p-6 text-center bg-[#FFEBFD] dark:bg-[#2a2a3a] shadow transition hover:-translate-y-1">
-              <div className="flex justify-center mb-4">
-                <img src="/Online-Portfolio/BunLI.png" className="w-[200px] h-[200px]" />
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-black dark:text-[#E6F1F7]">LinkedIn</h3>
-              <a
-                className="text-[#A6427C] dark:text-[#B4E0F7]"
-                href="https://www.linkedin.com/in/ariana-may-s-6a6ba6328/"
-                target="_blank"
-              >
-                Ariana May Saromo
-              </a>
-            </div>
-
-            <div className="rounded-[15px] p-6 text-center bg-[#FFEBFD] dark:bg-[#2a2a3a] shadow transition hover:-translate-y-1">
-              <div className="flex justify-center mb-4">
-                <img src="/Online-Portfolio/BunGH.png" className="w-[200px] h-[200px]" />
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-black dark:text-[#E6F1F7]">GitHub</h3>
-              <a
-                className="text-[#A6427C] dark:text-[#B4E0F7]"
-                href="https://github.com/pinkcutieee"
-                target="_blank"
-              >
-                pinkcutieee
-              </a>
-            </div>
-
-            <div className="rounded-[15px] p-6 text-center bg-[#FFEBFD] dark:bg-[#2a2a3a] shadow transition hover:-translate-y-1">
-              <div className="flex justify-center mb-4">
-                <img src="/Online-Portfolio/BunTH.png" className="w-[200px] h-[200px]" />
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-black dark:text-[#E6F1F7]">Trailhead</h3>
-              <a
-                className="text-[#A6427C] dark:text-[#B4E0F7]"
-                href="https://www.salesforce.com/trailblazer/xne2vyi84ilms2r1b8"
-                target="_blank"
-              >
-                Ariana May Saromo
-              </a>
-            </div>
-
-            <div className="rounded-[15px] p-6 text-center bg-[#FFEBFD] dark:bg-[#2a2a3a] shadow transition hover:-translate-y-1">
-              <div className="flex justify-center mb-4">
-                <img src="/Online-Portfolio/BunML.png" className="w-[200px] h-[200px]" />
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-black dark:text-[#E6F1F7]">Microsoft Learn</h3>
-              <a
-                className="text-[#A6427C] dark:text-[#B4E0F7]"
-                href="https://learn.microsoft.com/en-us/users/arianamaysaromo-1068/"
-                target="_blank"
-              >
-                Ariana May Saromo
-              </a>
-            </div>
+            ))}
           </div>
         </div>
       </div>
