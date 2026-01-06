@@ -4,7 +4,7 @@ import { Sun, Moon } from "lucide-react";
 
 function NavButton({ children, isActive, onClick, to, darkMode }) {
   const activeStyle = darkMode 
-    ? (isActive ? "#A5489E" : "#6A337E") 
+    ? (isActive ? "#A6427C" : "#6A337E") 
     : (isActive ? "#FD9EF6" : "#C295F3");
 
   const hoverColor = darkMode ? "#262363" : "#B4E0F7";
@@ -123,7 +123,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 px-4 sm:px-6 lg:px-8 pt-4">
       <div className="rounded-full shadow-sm" style={{
-        backgroundColor: darkMode ? "#A6427C" : "#F8CBFE"
+        backgroundColor: darkMode ? "#A5489E" : "#F8CBFE"
       }}>
         <div className="flex items-center justify-between h-16 sm:h-18 md:h-20 max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="flex items-center space-x-5">
@@ -179,7 +179,7 @@ export default function Navbar() {
             <button
               onClick={() => setDarkMode(!darkMode)}
               style={{
-                backgroundColor: darkMode ? "#A5489E" : "#6A337E",
+                backgroundColor: darkMode ? "#A6427C" : "#6A337E",
                 color: "white",
                 padding: "8px 12px",
                 borderRadius: "25px",
@@ -197,7 +197,7 @@ export default function Navbar() {
                 }
               }
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = darkMode ? "#A5489E" : "#6A337E";
+                e.currentTarget.style.backgroundColor = darkMode ? "#A6427C" : "#6A337E";
                 e.currentTarget.style.transform = "translateY(0)";
                 }
               }
