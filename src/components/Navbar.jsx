@@ -57,9 +57,8 @@ function NavButton({ children, isActive, onClick, to, darkMode }) {
   );
 }
 
-export default function Navbar() {
+export default function Navbar({ darkMode, setDarkMode }) {
   const [activeSection, setActiveSection] = useState("home");
-  const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -111,14 +110,6 @@ export default function Navbar() {
       return () => window.removeEventListener("scroll", onScroll);
     }
   }, [location.pathname]);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [darkMode]);
 
   return (
     <nav className="fixed top-0 w-full z-50 px-4 sm:px-6 lg:px-8 pt-4">
@@ -194,13 +185,11 @@ export default function Navbar() {
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = darkMode ? "#262363" : "#B4E0F7";
                 e.currentTarget.style.transform = "translateY(-2px)";
-                }
-              }
+              }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = darkMode ? "#C295F3" : "#6A337E";
                 e.currentTarget.style.transform = "translateY(0)";
-                }
-              }
+              }}
             >
               {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
