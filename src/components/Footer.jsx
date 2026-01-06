@@ -47,7 +47,7 @@ export default function Footer() {
             position: 'absolute',
             top: '20px',
             right: '20px',
-            backgroundColor: isDark ? '#6A337E' : '#C295F3',
+            backgroundColor: isDark ? '#262363' : '#C295F3',
             color: 'white',
             padding: '10px 20px',
             borderRadius: '25px',
@@ -63,7 +63,7 @@ export default function Footer() {
             e.currentTarget.style.transform = 'translateY(-2px)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#C295F3';
+            e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
             e.currentTarget.style.color = 'white';
             e.currentTarget.style.transform = 'translateY(0)';
           }}
@@ -95,7 +95,7 @@ export default function Footer() {
               style={{
                 width: '45px',
                 height: '45px',
-                backgroundColor: isDark ? '#6A337E' : '#C295F3',
+                backgroundColor: isDark ? '#262363' : '#C295F3',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
@@ -107,7 +107,7 @@ export default function Footer() {
                 e.currentTarget.style.transform = 'translateY(-3px)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#C295F3';
+                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
@@ -120,7 +120,7 @@ export default function Footer() {
               style={{
                 width: '45px',
                 height: '45px',
-                backgroundColor: isDark ? '#6A337E' : '#C295F3',
+                backgroundColor: isDark ? '#262363' : '#C295F3',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
@@ -132,7 +132,7 @@ export default function Footer() {
                 e.currentTarget.style.transform = 'translateY(-3px)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#C295F3';
+                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
@@ -145,7 +145,7 @@ export default function Footer() {
               style={{
                 width: '45px',
                 height: '45px',
-                backgroundColor: isDark ? '#6A337E' : '#C295F3',
+                backgroundColor: isDark ? '#262363' : '#C295F3',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
@@ -157,7 +157,7 @@ export default function Footer() {
                 e.currentTarget.style.transform = 'translateY(-3px)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = isDark ? '#6A337E' : '#C295F3';
+                e.currentTarget.style.backgroundColor = isDark ? '#262363' : '#C295F3';
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >

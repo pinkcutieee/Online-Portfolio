@@ -1,4 +1,83 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+
+function ParticleBackground({ color = '#dc84c0', particleCount = 50 }) {
+  const canvasRef = useRef(null);
+  
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let animationFrameId;
+    let particles = [];
+    
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    class Particle {
+      constructor() {
+        this.reset();
+        this.y = Math.random() * canvas.height;
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+      
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = -10;
+        this.speed = Math.random() * 1 + 0.5;
+        this.size = Math.random() * 3 + 1;
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+      
+      update() {
+        this.y += this.speed;
+        if (this.y > canvas.height) {
+          this.reset();
+        }
+      }
+      
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `${color}${Math.floor(this.opacity * 255).toString(16).padStart(2, '0')}`;
+        ctx.fill();
+      }
+    }
+    
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+    
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    
+    animate();
+    
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [color, particleCount]);
+  
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed top-0 left-0 w-full h-full pointer-events-none"
+      style={{ zIndex: 0 }}
+    />
+  );
+}
 
 export function Certificates() {
   const [openCategory, setOpenCategory] = useState(null);
@@ -23,7 +102,6 @@ export function Certificates() {
         {file: "/Online-Portfolio/NetworkingBasicsUpdate.pdf", preview: "/Online-Portfolio/NetworkingBasicsUpdate.png", title: "Networking Basics", date: "October 19, 2025", },
       ],
     },
-
     { id: "Two",
       category: "IBM",
       certificates: [
@@ -31,7 +109,6 @@ export function Certificates() {
         { file: "/Online-Portfolio/PythonForProgrammers.pdf", preview: "/Online-Portfolio/PythonForProgrammers.png", title: "Python for Programmers", date: "October 16, 2024", },
       ],
     },
-
     { id: "Three",
       category: "LinkedIn",
       certificates: [
@@ -62,14 +139,12 @@ export function Certificates() {
         { file: "/Online-Portfolio/Transition from Java to Python.pdf", preview: "/Online-Portfolio/Transition from Java to Python.png", title: "Transition from Java to Python", date: "March 24, 2025" }
       ],
     },
-
     { id: "Four",
       category: "Microsoft",
       certificates: [
         { file: "/Online-Portfolio/PythonForBeginners.pdf", preview: "/Online-Portfolio/PythonForBeginners.png", title: "Python for Beginners", date: "October 13, 2024" },
       ],
     },
-
     { id: "Five",
       category: "Others",
       certificates: [
@@ -88,124 +163,129 @@ export function Certificates() {
   };
 
   return (
-    <div className="min-h-screen w-screen" style={{
+    <div className="min-h-screen w-screen relative" style={{
       backgroundImage: isDark ? 'url(/Online-Portfolio/dark-bg.png)' : 'url(/Online-Portfolio/bg1.png)',
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
+      zIndex: 1
       }}
     >
-    <div className="pt-40 px-4 md:px-8 pb-8">
-      <div className="max-w-7xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{
-          color: isDark ? '#E6F1F7' : 'inherit'
-        }}>My Certificates</h1>
-        <p className="text-lg" style={{
-          color: isDark ? '#E6F1F7' : 'inherit'
-        }}>
-          A collection of my certifications and achievements.
-        </p>
-      </div>
-    </div>
-    <main className="px-4 md:px-8 pb-16">
-      <div className="max-w-7xl mx-auto space-y-3">
-        {certificateCategories.map((category) => {
-          const isOpen = openCategory === category.id;
-          return (
-            <div key={category.id} className="rounded-xl shadow-md overflow-hidden">
-              <button
-                onClick={() =>
-                  setOpenCategory(isOpen ? null : category.id)
-                }
-                className="w-full flex justify-between items-center p-5 text-left"
-                style={{
-                  backgroundColor: isDark ? "#262363" : "#E6F1F7",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "background-color 0.3s ease",
-                }}
-              >
-                <h3 className="text-xl md:text-2xl font-bold" style={{
-                  color: isDark ? '#E6F1F7' : 'inherit'
-                }}>
-                  {category.category}
-                </h3>
-                <span
-                  style={{
-                    fontSize: "24px",
-                    transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-                    transition: "transform 0.3s ease",
-                    color: isDark ? '#E6F1F7' : 'inherit'
-                  }}
-                >
-                ▼
-                </span>
-              </button>
+      <ParticleBackground color={isDark ? "#E6F1F7" : "#dc84c0"} particleCount={50} />
 
-              <div style={{
-                overflow: "hidden",
-                transition: "max-height 0.4s ease, opacity 0.3s ease",
-                maxHeight: isOpen ? "80vh" : "0",
-                opacity: isOpen ? 1 : 0,
-                overflowY: "auto",
-                }}
-              >
-                
-              <div style={{
-                backgroundColor: isDark ? "#342E37" : "#FFEBFD",
-                padding: isOpen ? "20px" : "0 20px",
-                transition: "padding 0.3s ease",
-                }}
-              >
-              <div style={{
-                display: "grid",
-                gridTemplateColumns:
-                "repeat(auto-fill, minmax(250px, 1fr))",
-                gap: "20px",
-                }}
-              >
-              {category.certificates.map((cert, index) => (
-                <div
-                  key={index}
-                  onClick={() => CertificateClick(cert)}
-                  style={{
-                    backgroundColor: isDark ? "#262363" : "#FCFAF2",
-                    borderRadius: "12px",
-                    overflow: "hidden",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                    cursor: "pointer",
-                    position: "relative",
-                    transition: "transform 0.3s ease",
-                    }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.transform = "translateY(-4px)")}
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.transform = "translateY(0)")}
-                >
-                <img src={cert.preview} alt={cert.title} style={{width: "100%", height: "180px", objectFit: "cover",}} />
-                <div style={{ padding: "15px" }}>
-                  <p style={{ 
-                    fontWeight: 600, 
-                    fontSize: "16px",
-                    color: isDark ? '#E6F1F7' : 'inherit'
-                  }}>
-                    {cert.title}
-                  </p>
-                  {cert.date && (
-                    <small style={{ color: isDark ? "#9ca3af" : "#505050" }}>
-                      {cert.date}
-                    </small>
-                  )}
-                </div>
-                </div>
-              ))}
-            </div>
+      <div className="relative" style={{ zIndex: 10 }}>
+        <div className="pt-40 px-4 md:px-8 pb-8">
+          <div className="max-w-7xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{
+              color: isDark ? '#E6F1F7' : 'inherit'
+            }}>My Certificates</h1>
+            <p className="text-lg" style={{
+              color: isDark ? '#E6F1F7' : 'inherit'
+            }}>
+              A collection of my certifications and achievements.
+            </p>
           </div>
         </div>
+        <main className="px-4 md:px-8 pb-16">
+          <div className="max-w-7xl mx-auto space-y-3">
+            {certificateCategories.map((category) => {
+              const isOpen = openCategory === category.id;
+              return (
+                <div key={category.id} className="rounded-xl shadow-md overflow-hidden">
+                  <button
+                    onClick={() =>
+                      setOpenCategory(isOpen ? null : category.id)
+                    }
+                    className="w-full flex justify-between items-center p-5 text-left"
+                    style={{
+                      backgroundColor: isDark ? "#262363" : "#E6F1F7",
+                      border: "none",
+                      cursor: "pointer",
+                      transition: "background-color 0.3s ease",
+                    }}
+                  >
+                    <h3 className="text-xl md:text-2xl font-bold" style={{
+                      color: isDark ? '#E6F1F7' : 'inherit'
+                    }}>
+                      {category.category}
+                    </h3>
+                    <span
+                      style={{
+                        fontSize: "24px",
+                        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.3s ease",
+                        color: isDark ? '#E6F1F7' : 'inherit'
+                      }}
+                    >
+                    ▼
+                    </span>
+                  </button>
+
+                  <div style={{
+                    overflow: "hidden",
+                    transition: "max-height 0.4s ease, opacity 0.3s ease",
+                    maxHeight: isOpen ? "80vh" : "0",
+                    opacity: isOpen ? 1 : 0,
+                    overflowY: "auto",
+                    }}
+                  >
+                    
+                  <div style={{
+                    backgroundColor: isDark ? "#342E37" : "#FFEBFD",
+                    padding: isOpen ? "20px" : "0 20px",
+                    transition: "padding 0.3s ease",
+                    }}
+                  >
+                  <div style={{
+                    display: "grid",
+                    gridTemplateColumns:
+                    "repeat(auto-fill, minmax(250px, 1fr))",
+                    gap: "20px",
+                    }}
+                  >
+                  {category.certificates.map((cert, index) => (
+                    <div
+                      key={index}
+                      onClick={() => CertificateClick(cert)}
+                      style={{
+                        backgroundColor: isDark ? "#262363" : "#FCFAF2",
+                        borderRadius: "12px",
+                        overflow: "hidden",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                        cursor: "pointer",
+                        position: "relative",
+                        transition: "transform 0.3s ease",
+                        }}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.transform = "translateY(-4px)")}
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.transform = "translateY(0)")}
+                    >
+                    <img src={cert.preview} alt={cert.title} style={{width: "100%", height: "180px", objectFit: "cover",}} />
+                    <div style={{ padding: "15px" }}>
+                      <p style={{ 
+                        fontWeight: 600, 
+                        fontSize: "16px",
+                        color: isDark ? '#E6F1F7' : 'inherit'
+                      }}>
+                        {cert.title}
+                      </p>
+                      {cert.date && (
+                        <small style={{ color: isDark ? "#9ca3af" : "#505050" }}>
+                          {cert.date}
+                        </small>
+                      )}
+                    </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          );
+          })}
+          </div>
+        </main>
       </div>
-      );
-      })}
-      </div>
-    </main>
-  </div>
+    </div>
   );
 }
