@@ -90,7 +90,7 @@ export default function Footer() {
           <p style={{
             color: isDark ? '#d1d5db' : '#374151',
             marginBottom: '16px'
-          }}>Passionate about developing innovative solutions, done the Ari way.</p>
+          }}>Computer Science Student | Aspiring Full-Stack Developer & Designer</p>
           <div className="flex gap-4">
             <a href="mailto:afsaromo@student.apc.edu.ph"
               target="_blank"
