@@ -6,9 +6,10 @@ import { Certificates } from "./Certificates";
 import Contacts from "./Contacts";
 import Footer from "./components/Footer";
 
+// Manage dark mode
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-
+  // Effect to apply dark mode class to body
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark");
@@ -16,7 +17,7 @@ function App() {
       document.body.classList.remove("dark");
     }
   }, [darkMode]);
-
+  // Navbar application structure and routing
   return (
     <>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />

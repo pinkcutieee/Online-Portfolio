@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export function Contacts() {
   const [isDark, setIsDark] = useState(false);
-
+  // Dark mode detection
   useEffect(() => {
     const checkDarkMode = () => {
       setIsDark(document.body.classList.contains('dark'));
@@ -14,7 +14,7 @@ export function Contacts() {
     
     return () => observer.disconnect();
   }, []);
-
+  // Render contacts component
   return (
     <div
       className="min-h-screen w-screen"
@@ -36,7 +36,7 @@ export function Contacts() {
         </p>
       </div>
     </div>
-
+    {/* // Contact details section */}
     <div className="px-4 md:px-8 pb-8">
       <div className="max-w-6xl mx-auto">
         <div className="mb-6"
@@ -47,6 +47,7 @@ export function Contacts() {
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
           }}
         >
+          {/* My details */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center md:text-left">
             <div>
               <p className="text-sm mb-1" style={{
@@ -74,7 +75,7 @@ export function Contacts() {
             </div>
           </div>
         </div>
-
+        {/* Contact details section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div 
             style={{

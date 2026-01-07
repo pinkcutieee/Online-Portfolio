@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+// Dark mode support and smooth scrolling
 export default function Footer() {
     const [isDark, setIsDark] = useState(false);
     const navigate = useNavigate();
@@ -41,6 +42,7 @@ export default function Footer() {
       }}
     >
       <div className="max-w-7xl mx-auto">
+        {/* Back to top button */}
         <button
           onClick={scrollToTop}
           style={{
@@ -73,6 +75,7 @@ export default function Footer() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        {/* Logo and social links */}
         <div>
           <div className="flex items-center space-x-3 mb-4">
             <img 
@@ -165,7 +168,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-
+        {/* Navigation/quick links */}
         <div>
           <ul className="flex flex-col gap-2">
             <li>

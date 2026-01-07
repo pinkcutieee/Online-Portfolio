@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 
+// Navigation button component
 function NavButton({ children, isActive, onClick, to, darkMode }) {
   const activeStyle = darkMode 
     ? (isActive ? "#A6427C" : "#6A337E") 
@@ -57,11 +58,12 @@ function NavButton({ children, isActive, onClick, to, darkMode }) {
   );
 }
 
+
 export default function Navbar({ darkMode, setDarkMode }) {
+  // Track active section
   const [activeSection, setActiveSection] = useState("home");
   const location = useLocation();
   const navigate = useNavigate();
-
   const handleSectionClick = (section) => {
     navigate("/");
     setTimeout(() => {
@@ -72,7 +74,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
       }
     }, 100);
   };
-
+  // Update active section based on scroll or route
   useEffect(() => {
     if (location.pathname === "/certificates") {
       setActiveSection("certificates");
@@ -117,6 +119,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
         backgroundColor: darkMode ? "#A5489E" : "#F8CBFE"
       }}>
         <div className="flex items-center justify-between h-16 sm:h-18 md:h-20 max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
+          {/* Logo, title, and navigation buttons */}
           <div className="flex items-center space-x-5">
             <img
               src={darkMode ? "/Online-Portfolio/White Logo.png" : "/Online-Portfolio/Black Logo.png"}
@@ -166,7 +169,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
             >
               Contact
             </NavButton>
-
+            
+            {/* Dark mode toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
               style={{

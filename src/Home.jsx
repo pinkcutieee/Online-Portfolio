@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
+import { data } from "react-router-dom";
 
+// Scroll reveal component/animation from react bit
 function ScrollReveal({ children, delay = 0 }) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -42,6 +44,7 @@ function ScrollReveal({ children, delay = 0 }) {
   );
 }
 
+// Particle background component/animation from react bit
 function ParticleBackground({ color = '#dc84c0', particleCount = 50 }) {
   const canvasRef = useRef(null);
   
@@ -139,7 +142,7 @@ function ParticleBackground({ color = '#dc84c0', particleCount = 50 }) {
     />
   );
 }
-
+// Project data array
 const projects = [
   {
     title: "Exploring Forecast-based Financing (FbF) and Flood Risk Prediction (FUNES) by Red Cross Red Crescent Climate Centre",
@@ -203,7 +206,7 @@ const projects = [
     image: "/Online-Portfolio/Berry Blast.png"
   }
 ];
-
+// Project card component
 function ProjectCard({ project, darkMode }) {
   return (
     <div className="relative flex gap-5 p-5 rounded-xl shadow hover:shadow-sm transform hover:-translate-y-1 transition"
@@ -244,11 +247,11 @@ function Home({ darkMode }) {
         backgroundRepeat: 'no-repeat',
         zIndex: 1
       }}>
-      
+      {/* Animated Background */}
       <ParticleBackground color={darkMode ? "#A6427C" : "#dc84c0"} particleCount={50} />
       
       <div className="relative" style={{ zIndex: 10 }}>
-        
+        {/* Hero section */}
         <div id="home" className="pt-20 px-4 flex gap-4 items-center">
           <div className="flex-1 flex flex-col justify-center items-center text-center">
               <p className="text-6xl md:text-7xl lg:text-8xl mr-0 md:mr-16 lg:mr-48 font-bold font-nunito" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>Ariana</p>
@@ -269,7 +272,7 @@ function Home({ darkMode }) {
             <img src="/Online-Portfolio/Me.png" alt="Hero" className="w-full h-full object-cover"/>
           </div>
         </div>
-
+        {/* About me section with scroll reveal */}
         <article id="about" className="pt-8 px-4 md:px-8">
           <ScrollReveal>
             <div className="flex gap-4">
@@ -445,7 +448,7 @@ function Home({ darkMode }) {
             </div>
           </ScrollReveal>
         </article>
-
+        {/* Projects section with scroll reveal */} 
         <section id="projects" className="pt-8 px-4 md:px-8 pb-8">
           <ScrollReveal delay={0.1}>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-left" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>Projects</h2>

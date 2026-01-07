@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { data } from "react-router-dom";
 
 export function Certificates() {
   const [openCategory, setOpenCategory] = useState(null);
   const [isDark, setIsDark] = useState(false);
-
+  // Dark mode detection
   useEffect(() => {
     const checkDarkMode = () => {
       setIsDark(document.body.classList.contains('dark'));
@@ -15,7 +16,7 @@ export function Certificates() {
     
     return () => observer.disconnect();
   }, []);
-
+// Certificates data array
   const certificateCategories = [
     { id: "One",
       category: "Cisco",
@@ -82,11 +83,11 @@ export function Certificates() {
       ],
     },
   ];
-
+// Handles certificate click to open file
   const CertificateClick = (cert) => {
     window.open(cert.file, "_blank", "noopener,noreferrer");
   };
-
+// Render certificates component
   return (
     <div className="min-h-screen w-screen" style={{
       backgroundImage: isDark ? 'url(/Online-Portfolio/newdark-bg1.png)' : 'url(/Online-Portfolio/bg1.png)',
@@ -112,6 +113,7 @@ export function Certificates() {
           const isOpen = openCategory === category.id;
           return (
             <div key={category.id} className="rounded-xl shadow-md overflow-hidden">
+              {/* Category header button */}
               <button
                 onClick={() =>
                   setOpenCategory(isOpen ? null : category.id)
@@ -140,7 +142,7 @@ export function Certificates() {
                 ❤︎
                 </span>
               </button>
-
+              {/* Certificates list */}
               <div style={{
                 overflow: "hidden",
                 transition: "max-height 0.4s ease, opacity 0.3s ease",
@@ -163,6 +165,7 @@ export function Certificates() {
                 gap: "20px",
                 }}
               >
+              {/* Render each certificate */}
               {category.certificates.map((cert, index) => (
                 <div
                   key={index}
