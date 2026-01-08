@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { data } from "react-router-dom";
 
 // Scroll reveal component/animation from react bit
 function ScrollReveal({ children, delay = 0 }) {
@@ -142,6 +141,7 @@ function ParticleBackground({ color = '#dc84c0', particleCount = 50 }) {
     />
   );
 }
+
 // Project data array
 const projects = [
   {
@@ -206,13 +206,14 @@ const projects = [
     image: "/Online-Portfolio/Berry Blast.png"
   }
 ];
+
 // Project card component
 function ProjectCard({ project, darkMode }) {
   return (
-    <div className="relative flex gap-5 p-5 rounded-xl shadow hover:shadow-sm transform hover:-translate-y-1 transition"
+    <div className="relative flex flex-col md:flex-row gap-3 md:gap-5 p-3 md:p-5 rounded-xl shadow hover:shadow-sm transform hover:-translate-y-1 transition"
          style={{ backgroundColor: darkMode ? "#342E37" : "#FFEBFD" }}>
-      <small className="absolute top-3 right-3 text-sm" style={{ color: darkMode ? "#9ca3af" : "#666" }}>{project.date}</small>
-      <div className="w-[300px] h-[300px] bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center">
+      <small className="absolute top-2 md:top-3 right-2 md:right-3 text-xs md:text-sm" style={{ color: darkMode ? "#9ca3af" : "#666" }}>{project.date}</small>
+      <div className="w-full md:w-[250px] lg:w-[300px] h-[200px] md:h-[250px] lg:h-[300px] bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center mt-6 md:mt-0">
         <img
           src={project.image}
           alt={project.title}
@@ -220,17 +221,17 @@ function ProjectCard({ project, darkMode }) {
       </div>
 
       <div className="flex-1 text-left">
-        <h4 className="font-bold text-sm md:text-base mb-2" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>{project.title}</h4>
-        <p className="font-bold text-sm mb-1" style={{ color: darkMode ? "#d1d5db" : "#374151" }}>{project.names}</p><br/>
-        <p className="text-medium mb-1" style={{ color: darkMode ? "#E6F1F7" : "#374151" }}>{project.description}</p>
+        <h4 className="font-bold text-xs md:text-sm lg:text-base mb-2" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>{project.title}</h4>
+        <p className="font-bold text-xs md:text-sm mb-1" style={{ color: darkMode ? "#d1d5db" : "#374151" }}>{project.names}</p><br className="hidden md:block"/>
+        <p className="text-xs md:text-sm mb-1" style={{ color: darkMode ? "#E6F1F7" : "#374151" }}>{project.description}</p>
         <a href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-sm font-semibold hover:underline mb-2"
+            className="inline-block text-xs md:text-sm font-semibold hover:underline mb-2"
             style={{ color: darkMode ? "#B4E0F7" : "#7630CC" }}>
             {project.title}
         </a><br/>
-        <small className="text-sm" style={{ color: darkMode ? "#9ca3af" : "#6b7280" }}>{project.details}</small>
+        <small className="text-xs" style={{ color: darkMode ? "#9ca3af" : "#6b7280" }}>{project.details}</small>
       </div>
     </div>
   );
@@ -252,31 +253,32 @@ function Home({ darkMode }) {
       
       <div className="relative" style={{ zIndex: 10 }}>
         {/* Hero section */}
-        <div id="home" className="pt-20 px-4 flex gap-4 items-center">
-          <div className="flex-1 flex flex-col justify-center items-center text-center">
-              <p className="text-6xl md:text-7xl lg:text-8xl mr-0 md:mr-16 lg:mr-48 font-bold font-nunito" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>Ariana</p>
-              <p className="text-6xl md:text-7xl lg:text-8xl mb-4 ml-0 md:ml-16 lg:ml-48 font-bold font-nunito" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>Saromo</p>
-              <div className="flex gap-2 mt-2 justify-center">
-                <p className="text-lg px-6 py-2 bg-[#FD9EF6] text-white rounded-full">
+        <div id="home" className="pt-16 md:pt-20 px-4 flex flex-col md:flex-row gap-4 items-center">
+          <div className="flex-1 flex flex-col justify-center items-center text-center order-2 md:order-1">
+              <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mr-0 md:mr-8 lg:mr-16 xl:mr-48 font-bold font-nunito" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>Ariana</p>
+              <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 ml-0 md:ml-8 lg:ml-16 xl:ml-48 font-bold font-nunito" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>Saromo</p>
+              <div className="flex flex-col sm:flex-row gap-2 mt-2 justify-center">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg px-4 md:px-6 py-2 bg-[#FD9EF6] text-white rounded-full">
                   Computer Science Student
                 </p>
-                <p className="text-lg px-6 py-2 bg-[#FD9EF6] text-white rounded-full">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg px-4 md:px-6 py-2 bg-[#FD9EF6] text-white rounded-full">
                   Aspiring Full-Stack Developer & Designer
                 </p>
               </div>
-              <a href="/Online-Portfolio/Resume.pdf" className="inline-block mt-2 px-6 py-2 bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
+              <a href="/Online-Portfolio/Resume.pdf" className="inline-block mt-2 px-4 md:px-6 py-2 text-sm md:text-base bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
                 View Resume
               </a>
           </div>
-          <div style={{ width: '600px', height: '680px' }}>
-            <img src="/Online-Portfolio/Me.png" alt="Hero" className="w-full h-full object-cover"/>
+          <div className="w-full md:w-[400px] lg:w-[500px] xl:w-[600px] h-auto order-1 md:order-2">
+            <img src="/Online-Portfolio/Me.png" alt="Hero" className="w-full h-auto object-cover"/>
           </div>
         </div>
+
         {/* About me section with scroll reveal */}
         <article id="about" className="pt-8 px-4 md:px-8">
           <ScrollReveal>
-            <div className="flex gap-4">
-              <img src="/Online-Portfolio/Laptop.png" alt="Laptop" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'cover'}}/>
+            <div className="flex flex-col md:flex-row gap-4">
+              <img src="/Online-Portfolio/Laptop.png" alt="Laptop" className="w-full md:w-[250px] lg:w-[350px] h-auto object-cover rounded-lg"/>
               <div className="flex-1">
               <p className="boxed">
               <div className="window-titlebar">
@@ -287,7 +289,7 @@ function Home({ darkMode }) {
                   <div className="window-icon">✕</div>
                 </div>
                   <h3><b>Hi, I'm Ari!</b></h3>
-                  <div className="text-lg">
+                  <div className="text-sm md:text-base lg:text-lg">
                     I am a 2nd-year Computer Science student at Asia Pacific College with a passion for full-stack development and creative design. 
                     I constantly explore new technologies and techniques to enhance my skills and build innovative solutions that combine functionality 
                     with aesthetics. I enjoy experimenting with both frontend and backend development, creating projects that reflect my interest.
@@ -301,7 +303,7 @@ function Home({ darkMode }) {
 
         <article className="pt-8 px-4 md:px-8">
           <ScrollReveal delay={0.2}>
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1">
                 <p className="boxed">
                 <div className="window-titlebar">
@@ -312,7 +314,7 @@ function Home({ darkMode }) {
                   <div className="window-icon">✕</div>
                 </div>
                   <h3><b>Skills</b></h3>
-                  <ul className="text-lg">
+                  <ul className="text-sm md:text-base lg:text-lg">
                     <li>• HTML</li>
                     <li>• CSS</li>
                     <li>• Python</li>
@@ -337,21 +339,21 @@ function Home({ darkMode }) {
                     <div className="window-icon">✕</div>
                   </div>
                   <h3><b>Experience</b></h3>
-                  <ul className="text-lg">
+                  <ul className="text-sm md:text-base lg:text-lg">
                     <li>• <b>Marketing Officer</b> - Junior Philippine Computer Society - Asia Pacific College (September 2025 - Present)</li>
                     <li>• <b>President</b> - Information and Communications Technology Club - Conperey Integrated Learning School Inc. (October 2022 - June 2024)</li>
                   </ul>
                 </p>
               </div>
-              <img src="/Online-Portfolio/Gear.png" alt="Gear" className="w-full h-auto object-cover rounded-lg" style={{width: '400px', objectFit: 'cover'}}/>
+              <img src="/Online-Portfolio/Gear.png" alt="Gear" className="hidden lg:block w-full lg:w-[400px] h-auto object-cover rounded-lg"/>
             </div>
           </ScrollReveal>
         </article>
 
         <article className="pt-8 px-4 md:px-8">
           <ScrollReveal delay={0.3}>
-            <div className="flex gap-4">
-              <img src="/Online-Portfolio/CLI.png" alt="CLI" className="w-full h-auto object-cover rounded-lg" style={{width: '350px', objectFit: 'contain'}}/>
+            <div className="flex flex-col md:flex-row gap-4">
+              <img src="/Online-Portfolio/CLI.png" alt="CLI" className="hidden md:block w-full md:w-[250px] lg:w-[350px] h-auto object-cover rounded-lg"/>
               <div className="flex-1">
                 <p className="boxed">
                   <div className="window-titlebar">
@@ -362,66 +364,66 @@ function Home({ darkMode }) {
                   <div className="window-icon">✕</div>
                   </div>
                   <h3><b>Tools & Software Skills</b></h3>
-                  <div className="grid grid-cols-3 gap-4 mt-4">
+                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 gap-2 md:gap-4 mt-4">
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/Microsoft.png" alt="Microsoft Office" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">Microsoft Office Apps</span>
+                      <img src="/Online-Portfolio/Microsoft.png" alt="Microsoft Office" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">Microsoft Office Apps</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/VSCode.png" alt="VS Code" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">VS Code</span>
+                      <img src="/Online-Portfolio/VSCode.png" alt="VS Code" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">VS Code</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/JetBrains.png" alt="JetBrains" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">JetBrains Apps</span>
+                      <img src="/Online-Portfolio/JetBrains.png" alt="JetBrains" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">JetBrains Apps</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/GitHubL.png" alt="GitHub" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">GitHub</span>
+                      <img src="/Online-Portfolio/GitHubL.png" alt="GitHub" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">GitHub</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/ChatGPT.png" alt="ChatGPT" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">ChatGPT</span>
+                      <img src="/Online-Portfolio/ChatGPT.png" alt="ChatGPT" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">ChatGPT</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/Claude.png" alt="Claude" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">Claude</span>
+                      <img src="/Online-Portfolio/Claude.png" alt="Claude" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">Claude</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/Procreate.png" alt="Procreate" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">Procreate</span>
+                      <img src="/Online-Portfolio/Procreate.png" alt="Procreate" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">Procreate</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/Figma.png" alt="Figma" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">Figma</span>
+                      <img src="/Online-Portfolio/Figma.png" alt="Figma" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">Figma</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/Canva.png" alt="Canva" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">Canva</span>
+                      <img src="/Online-Portfolio/Canva.png" alt="Canva" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">Canva</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/Kali.png" alt="Kali" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">Kali Linux</span>
+                      <img src="/Online-Portfolio/Kali.png" alt="Kali" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">Kali Linux</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/Ubuntu.png" alt="Ubuntu" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">Ubuntu Linux</span>
+                      <img src="/Online-Portfolio/Ubuntu.png" alt="Ubuntu" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">Ubuntu Linux</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/Mysql.png" alt="MySQL" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">MySQL</span>
+                      <img src="/Online-Portfolio/Mysql.png" alt="MySQL" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">MySQL</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/XAMPP.png" alt="XAMPP" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">XAMPP</span>
+                      <img src="/Online-Portfolio/XAMPP.png" alt="XAMPP" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">XAMPP</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/PacketTracer.png" alt="Packet Tracer" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">Packet Tracer</span>
+                      <img src="/Online-Portfolio/PacketTracer.png" alt="Packet Tracer" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">Packet Tracer</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <img src="/Online-Portfolio/Tinkercad.png" alt="Tinkercad" className="w-16 h-16 object-contain mb-2" />
-                      <span className="text-sm">Tinkercad</span>
+                      <img src="/Online-Portfolio/Tinkercad.png" alt="Tinkercad" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">Tinkercad</span>
                     </div>
                   </div>
                 </p>
@@ -437,7 +439,7 @@ function Home({ darkMode }) {
                 <div className="window-icon">✕</div>
                 </div>
                 <h3><b>Education</b></h3>
-                  <ul className="text-lg">
+                  <ul className="text-sm md:text-base lg:text-lg">
                     <li>• <b>Bachelor of Science in Computer Science</b> - Asia Pacific College (2024-2028)</li>
                     <li>• Senior High School - Conperey Integrated Learning School Inc. (2022-2024)</li>
                     <li>• Junior High School - Conperey Integrated Learning School Inc. (2018-2022)</li>
@@ -448,6 +450,7 @@ function Home({ darkMode }) {
             </div>
           </ScrollReveal>
         </article>
+
         {/* Projects section with scroll reveal */} 
         <section id="projects" className="pt-8 px-4 md:px-8 pb-8">
           <ScrollReveal delay={0.1}>

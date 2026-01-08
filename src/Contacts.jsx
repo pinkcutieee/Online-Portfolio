@@ -32,7 +32,7 @@ export function Contacts() {
         <p className="text-lg mb-8" style={{
           color: isDark ? '#d1d5db' : 'inherit'
         }}>
-          Feel free to reach out and connect with me me through any of the following:
+          Feel free to reach out and connect with me through any of the following:
         </p>
       </div>
     </div>
