@@ -265,7 +265,7 @@ function Home({ darkMode }) {
                   Aspiring Full-Stack Developer & Designer
                 </p>
               </div>
-              <a href="/Online-Portfolio/Resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 px-4 md:px-6 py-2 text-sm md:text-base bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
+              <a href="/Online-Portfolio/Resume.pdf" className="inline-block mt-2 px-4 md:px-6 py-2 text-sm md:text-base bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
                 View Resume
               </a>
           </div>
@@ -345,7 +345,7 @@ function Home({ darkMode }) {
                   </ul>
                 </p>
               </div>
-              <img src="/Online-Portfolio/Gear.png" alt="Gear" className="hidden lg:block w-full lg:w-[400px] h-auto object-cover rounded-lg"/>
+              <img src="/Online-Portfolio/Gear.png" alt="Gear" className="hidden md:block w-full md:w-[300px] lg:w-[400px] h-auto object-cover rounded-lg"/>
             </div>
           </ScrollReveal>
         </article>
@@ -353,7 +353,7 @@ function Home({ darkMode }) {
         <article className="pt-8 px-4 md:px-8">
           <ScrollReveal delay={0.3}>
             <div className="flex flex-col md:flex-row gap-4">
-              <img src="/Online-Portfolio/CLI.png" alt="CLI" className="hidden md:block w-full md:w-[250px] lg:w-[350px] h-auto object-cover rounded-lg"/>
+              <img src="/Online-Portfolio/CLI.png" alt="CLI" className="hidden md:block w-full md:w-[300px] lg:w-[350px] h-auto object-contain rounded-lg"/>
               <div className="flex-1">
                 <p className="boxed">
                   <div className="window-titlebar">
