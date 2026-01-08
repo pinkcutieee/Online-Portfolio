@@ -329,7 +329,7 @@ function Home({ darkMode }) {
                     <li>• React</li>
                     <li>• Bootstrap</li>
                     <li>• Tailwind CSS</li>
-                    <li>• GitHub</li>
+                    <li>• Git & GitHub</li>
                   </ul>
                 </div>
               </div>
@@ -373,6 +373,10 @@ function Home({ darkMode }) {
                     <div className="flex flex-col items-center text-center">
                       <img src="/Online-Portfolio/Microsoft.png" alt="Microsoft Office" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
                       <span className="text-xs">Microsoft Office Apps</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <img src="/Online-Portfolio/Google.png" alt="Google" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
+                      <span className="text-xs">Google Apps</span>
                     </div>
                     <div className="flex flex-col items-center text-center">
                       <img src="/Online-Portfolio/VSCode.png" alt="VS Code" className="w-12 h-12 md:w-16 md:h-16 object-contain mb-2" />
