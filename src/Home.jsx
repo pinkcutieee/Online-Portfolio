@@ -254,22 +254,27 @@ function Home({ darkMode }) {
       <div className="relative" style={{ zIndex: 10 }}>
         {/* Hero section */}
         <div id="home" className="pt-16 md:pt-20 px-4 flex flex-col md:flex-row gap-4 items-center">
-          <div className="flex-1 flex flex-col justify-center items-center text-center order-2 md:order-1">
+          <div className="flex-1 flex flex-col justify-center items-center text-center">
               <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mr-0 md:mr-8 lg:mr-16 xl:mr-48 font-bold font-nunito" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>Ariana</p>
               <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 ml-0 md:ml-8 lg:ml-16 xl:ml-48 font-bold font-nunito" style={{ color: darkMode ? "#E6F1F7" : "inherit" }}>Saromo</p>
-              <div className="flex flex-col sm:flex-row gap-2 mt-2 justify-center">
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg px-4 md:px-6 py-2 bg-[#FD9EF6] text-white rounded-full">
+              
+              <div className="block md:hidden w-full max-w-md mb-4">
+                <img src="/Online-Portfolio/Me.png" alt="Hero" className="w-full h-auto object-cover"/>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-2 mt-2 justify-center flex-wrap">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg px-4 md:px-6 py-2 bg-[#FD9EF6] text-white rounded-full whitespace-nowrap">
                   Computer Science Student
                 </p>
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg px-4 md:px-6 py-2 bg-[#FD9EF6] text-white rounded-full">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg px-4 md:px-6 py-2 bg-[#FD9EF6] text-white rounded-full whitespace-nowrap">
                   Aspiring Full-Stack Developer & Designer
                 </p>
               </div>
-              <a href="/Online-Portfolio/Resume.pdf" className="inline-block mt-2 px-4 md:px-6 py-2 text-sm md:text-base bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
+              <a href="/Online-Portfolio/Resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 px-4 md:px-6 py-2 text-sm md:text-base bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
                 View Resume
               </a>
           </div>
-          <div className="w-full md:w-[400px] lg:w-[500px] xl:w-[600px] h-auto order-1 md:order-2">
+          <div className="hidden md:block md:w-[400px] lg:w-[500px] xl:w-[600px]">
             <img src="/Online-Portfolio/Me.png" alt="Hero" className="w-full h-auto object-cover"/>
           </div>
         </div>
@@ -345,7 +350,7 @@ function Home({ darkMode }) {
                   </ul>
                 </p>
               </div>
-              <img src="/Online-Portfolio/Gear.png" alt="Gear" className="hidden md:block w-full md:w-[300px] lg:w-[400px] h-auto object-cover rounded-lg"/>
+              <img src="/Online-Portfolio/Gear.png" alt="Gear" className="hidden md:block w-full md:w-[280px] lg:w-[350px] xl:w-[400px] h-auto object-contain rounded-lg"/>
             </div>
           </ScrollReveal>
         </article>
@@ -353,7 +358,7 @@ function Home({ darkMode }) {
         <article className="pt-8 px-4 md:px-8">
           <ScrollReveal delay={0.3}>
             <div className="flex flex-col md:flex-row gap-4">
-              <img src="/Online-Portfolio/CLI.png" alt="CLI" className="hidden md:block w-full md:w-[300px] lg:w-[350px] h-auto object-contain rounded-lg"/>
+              <img src="/Online-Portfolio/CLI.png" alt="CLI" className="hidden md:block w-full md:w-[280px] lg:w-[320px] xl:w-[350px] h-auto object-contain rounded-lg"/>
               <div className="flex-1">
                 <p className="boxed">
                   <div className="window-titlebar">

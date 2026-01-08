@@ -136,11 +136,10 @@ export default function Navbar({ darkMode, setDarkMode }) {
               alt="Logo"
               className="h-6 sm:h-10 md:h-12"
             />
-            <span className="text-sm sm:text-lg md:text-2xl font-semibold" style={{
+            <span className="text-xs sm:text-lg md:text-2xl font-semibold whitespace-nowrap" style={{
               color: darkMode ? "#E6F1F7" : "inherit"
             }}>
-              <span className="hidden sm:inline">Ariana Saromo's Portfolio</span>
-              <span className="sm:hidden">Portfolio</span>
+              Ariana Saromo's Portfolio
             </span>
           </div>
 
@@ -212,7 +211,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
           </div>
 
           {/* Mobile menu toggle */}
-          <div className="flex lg:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-1 sm:gap-2">
             <button
               onClick={() => setDarkMode(!darkMode)}
               style={{
@@ -229,7 +228,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 justifyContent: "center"
               }}
             >
-              {darkMode ? <Sun size={16} /> : <Moon size={16} />}
+              {darkMode ? <Sun size={14} /> : <Moon size={14} />}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -247,7 +246,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 justifyContent: "center"
               }}
             >
-              {mobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
+              {mobileMenuOpen ? <X size={14} /> : <Menu size={14} />}
             </button>
           </div>
         </div>
