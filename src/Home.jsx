@@ -265,7 +265,7 @@ function Home({ darkMode }) {
                   Aspiring Full-Stack Developer & Designer
                 </p>
               </div>
-              <a href="/Online-Portfolio/Resume.pdf" className="inline-block mt-2 px-4 md:px-6 py-2 text-sm md:text-base bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
+              <a href="/Online-Portfolio/Resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 px-4 md:px-6 py-2 text-sm md:text-base bg-[#C295F3] text-white rounded-full hover:bg-[#B4E0F7] transition">
                 View Resume
               </a>
           </div>
