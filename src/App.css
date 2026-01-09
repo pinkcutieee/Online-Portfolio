@@ -78,7 +78,7 @@ body.dark .min-h-screen {
   color: #E6F1F7;
 }
 
-body.dark p.boxed {
+body.dark .boxed {
   background-color: #342e37;
   color: #E6F1F7;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
